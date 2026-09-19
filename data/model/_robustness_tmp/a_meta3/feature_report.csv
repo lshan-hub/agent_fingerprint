@@ -1,0 +1,4 @@
+feature,step,kept,importance
+f_gas_avail_ratio,kept,1,0.72115123
+f_kind_entropy,kept,1,0.0012362459
+f_txfrom_ratio,corr_dedup,0,0.27761245

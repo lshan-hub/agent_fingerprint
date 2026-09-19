@@ -1,0 +1,7 @@
+feature,step,kept,importance
+f_longest_silence_h,kept,1,0.39367318
+f_span_days,kept,1,0.32542044
+f_active_days,kept,1,0.12316582
+f_entropy_24h,kept,1,0.06525412
+f_entropy_dow,kept,1,0.04386403
+f_active_hours,corr_dedup,0,0.04862236

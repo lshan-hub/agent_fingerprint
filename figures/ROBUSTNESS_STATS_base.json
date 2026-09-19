@@ -1,0 +1,116 @@
+{
+  "exp_a": {
+    "meta3": {
+      "n_nominal": 3,
+      "n_used": 2,
+      "n_samples": 30000,
+      "macro_f1": 0.7753,
+      "recall": {
+        "human": 0.9965,
+        "bot": 0.3844,
+        "agent": 0.9999
+      },
+      "as_human_pct": 98.5,
+      "as_bot_pct": 1.5,
+      "desc": "仅 3 维协议形态元特征"
+    },
+    "win6": {
+      "n_nominal": 6,
+      "n_used": 5,
+      "n_samples": 30000,
+      "macro_f1": 0.9099,
+      "recall": {
+        "human": 0.8512,
+        "bot": 0.9231,
+        "agent": 0.9408
+      },
+      "as_human_pct": 71.6,
+      "as_bot_pct": 28.4,
+      "desc": "仅 6 维窗口依赖特征"
+    },
+    "miss16": {
+      "n_nominal": 16,
+      "n_used": 14,
+      "n_samples": 30000,
+      "macro_f1": 0.9891,
+      "recall": {
+        "human": 0.9867,
+        "bot": 0.9809,
+        "agent": 0.9998
+      },
+      "as_human_pct": 98.6,
+      "as_bot_pct": 1.4,
+      "desc": "仅 16 维缺失模式特征（gas/nonce/value）"
+    },
+    "gas_avail1": {
+      "n_nominal": 1,
+      "n_used": 1,
+      "n_samples": 30000,
+      "macro_f1": 0.5736,
+      "recall": {
+        "human": 0.9935,
+        "bot": 0.0211,
+        "agent": 0.9999
+      },
+      "as_human_pct": 0.0,
+      "as_bot_pct": 100.0,
+      "desc": "仅 f_gas_avail_ratio 单个特征"
+    },
+    "silence1": {
+      "n_nominal": 1,
+      "n_used": 1,
+      "n_samples": 30000,
+      "macro_f1": 0.7302,
+      "recall": {
+        "human": 0.6022,
+        "bot": 0.8495,
+        "agent": 0.7787
+      },
+      "as_human_pct": 70.3,
+      "as_bot_pct": 29.7,
+      "desc": "仅 f_longest_silence_h 单个特征"
+    }
+  },
+  "exp_b": {
+    "cap_s": 20000.0,
+    "baseline": {
+      "n_nominal": 32,
+      "n_used": 21,
+      "n_samples": 30000,
+      "macro_f1": 0.9812,
+      "recall": {
+        "human": 0.9703,
+        "bot": 0.9828,
+        "agent": 0.9879
+      },
+      "as_human_pct": 59.8,
+      "as_bot_pct": 40.2
+    },
+    "censored": {
+      "n_nominal": 32,
+      "n_used": 24,
+      "n_samples": 30000,
+      "macro_f1": 0.9705,
+      "recall": {
+        "human": 0.9425,
+        "bot": 0.9803,
+        "agent": 0.9823
+      },
+      "as_human_pct": 54.2,
+      "as_bot_pct": 45.8
+    }
+  },
+  "exp_c": {
+    "n_nominal": 14,
+    "n_used": 10,
+    "n_samples": 30000,
+    "macro_f1": 0.8824,
+    "recall": {
+      "human": 0.751,
+      "bot": 0.9099,
+      "agent": 0.965
+    },
+    "as_human_pct": 48.4,
+    "as_bot_pct": 51.6
+  }
+}

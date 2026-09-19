@@ -1,0 +1,14 @@
+# 由 agent_fingerprint/src/data_fetch 生成
+# 时间: 2026-09-12 01:19:34
+# ERC-8004 AgentIdentity 注册表的 owner 地址
+# 🔴 有效注册率仅 3-15%，务必只用 tier=active 子集作正样本
+# 链: base | 扫描上限 200
+address,source,note,tier,tx_count
+0x89e9e1ab11dd1b138b1dce6d6a4a0926aafd5029,erc8004,agentId=1,unknown,-1
+0x6f0fabebc27a866be65336cb64deef9880b5c1ac,erc8004,agentId=2,unknown,-1
+0x67722c823010ceb4bed5325fe109196c0f67d053,erc8004,agentId=3,unknown,-1
+0x67722c823010ceb4bed5325fe109196c0f67d053,erc8004,agentId=5,unknown,-1
+0x67722c823010ceb4bed5325fe109196c0f67d053,erc8004,agentId=6,unknown,-1
+0x67722c823010ceb4bed5325fe109196c0f67d053,erc8004,agentId=7,unknown,-1
+0x67722c823010ceb4bed5325fe109196c0f67d053,erc8004,agentId=9,unknown,-1
+0x67722c823010ceb4bed5325fe109196c0f67d053,erc8004,agentId=10,unknown,-1

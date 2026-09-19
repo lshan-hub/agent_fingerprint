@@ -1,0 +1,40 @@
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/annie/Desktop/agent_fingerprint/bin/gen_missing_figs.py:81: UserWarning: Glyph 8658 (\N{RIGHTWARDS DOUBLE ARROW}) missing from font(s) Hiragino Sans GB.
+  fig.savefig(p, dpi=150, bbox_inches='tight', facecolor='white')
+▶ 载入 behavior 特征集与模型产物 …
+  样本 29,996 | 特征 22 | 折数 5
+  超参直接沿用训练时的 best_params（不重调，避免与表 5.1 冲突）
+
+▶ 图4.3 缺失率 …
+✓ fig43_missingness.png
+
+▶ 图5.2 消融框架 …
+✓ fig_ablation_frame.png
+
+▶ 图5.7 学习曲线（多次拟合，稍慢）…
+    n=   149  macro-F1=0.8453 ±0.0306
+    n=   299  macro-F1=0.9103 ±0.0406
+    n=   599  macro-F1=0.9323 ±0.0172
+    n= 1,499  macro-F1=0.9567 ±0.0187
+    n= 2,999  macro-F1=0.9647 ±0.0042
+    n= 5,999  macro-F1=0.9749 ±0.0056
+    n=11,998  macro-F1=0.9778 ±0.0015
+    n=20,997  macro-F1=0.9796 ±0.0016
+    n=29,996  macro-F1=0.9810 ±0.0006
+✓ fig7_learning_curve_base.png
+
+▶ 图5.10 / 5.11 OOF 概率与 ROC（重算 OOF）…
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓ fig9_oof_proba_base.png
+✓ fig10_roc_ovr_base.png
+
+▶ 图5.12 单棵树 …
+✓ fig8_tree_structure_base.png
+
+✓ 实测值 → figures/MISSING_FIGS_STATS_base.json
+✓ 全部完成

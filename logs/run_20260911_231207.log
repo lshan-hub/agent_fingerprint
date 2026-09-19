@@ -1,0 +1,248 @@
+  运行日志: logs/run_20260911_231207.log
+═══════════════════════════════════════════════════════════════
+  真实数据模式（30k 样本方案）
+    链       : base
+    窗口     : 完整建模窗口 2026-03-01 ~ 2026-09-03（187 天）
+    每组配额 : agent 13,000 / bot 11,000 / human 6,000 ⇒ 合计 30,000
+               （成本感知分配：agent 事件零成本、human 全窗口最贵）
+    预计耗时 : 约 23 万次请求 ≈ 12h 标称 / 25-37h 含 SQD 过载
+               discover ≈2.5h + activity ≈10h（可中断续跑，建议挂通宵）
+    磁盘预算 : data/sweep 峰值 30-50 GB + data/raw 10-15 GB
+    起始阶段 : sources
+    解释器   : python3
+═══════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────
+  [1/7] 注册表与画像 → data/sources/
+───────────────────────────────────────────────────────────────
+  Olas/ERC-8004 注册表是全量快照、变动很慢，已有产物直接复用。
+  x402 提交者画像是 30k 方案的提纯依据（区分微支付网关与零售中继）。
+
+  ▶ Olas 自主服务注册表（Base + Gnosis）
+▶ [olas] Olas agent Safe 地址（真值质量最高）
+✓ 已从官方仓库载入 9 条链的 registry 地址
+▶ [base] ServiceRegistryL2 @ 0x3C1fF68f5aa342D296d4DEe4Bb1cACCA912D95fE
+    totalSupply = 637 个 service，本次抓取 637 个
+    进度 50/637 · 已得 49 个 Safe · RPC 51
+    进度 100/637 · 已得 98 个 Safe · RPC 101
+    进度 150/637 · 已得 144 个 Safe · RPC 151
+    进度 200/637 · 已得 184 个 Safe · RPC 201
+    进度 250/637 · 已得 234 个 Safe · RPC 251
+    进度 300/637 · 已得 284 个 Safe · RPC 301
+    进度 350/637 · 已得 334 个 Safe · RPC 351
+    进度 400/637 · 已得 374 个 Safe · RPC 401
+    进度 500/637 · 已得 465 个 Safe · RPC 501
+    进度 550/637 · 已得 510 个 Safe · RPC 551
+    进度 600/637 · 已得 559 个 Safe · RPC 601
+    进度 637/637 · 已得 595 个 Safe · RPC 638
+✓ [base] 595 个 multisig，42 个未部署
+▶ [gnosis] ServiceRegistryL2 @ 0x9338b5153AE39BB89f50468E608eD9d764B755fD
+    totalSupply = 3,804 个 service，本次抓取 3,804 个
+    进度 50/3804 · 已得 35 个 Safe · RPC 51
+    进度 150/3804 · 已得 117 个 Safe · RPC 151
+    进度 200/3804 · 已得 156 个 Safe · RPC 201
+    进度 400/3804 · 已得 292 个 Safe · RPC 401
+    进度 450/3804 · 已得 336 个 Safe · RPC 451
+    进度 500/3804 · 已得 381 个 Safe · RPC 501
+    进度 550/3804 · 已得 426 个 Safe · RPC 551
+    进度 600/3804 · 已得 472 个 Safe · RPC 601
+    进度 650/3804 · 已得 519 个 Safe · RPC 651
+    进度 750/3804 · 已得 611 个 Safe · RPC 751
+    进度 800/3804 · 已得 660 个 Safe · RPC 801
+    进度 850/3804 · 已得 705 个 Safe · RPC 851
+    进度 900/3804 · 已得 754 个 Safe · RPC 901
+    进度 950/3804 · 已得 803 个 Safe · RPC 951
+    进度 1000/3804 · 已得 842 个 Safe · RPC 1001
+    进度 1050/3804 · 已得 891 个 Safe · RPC 1051
+    进度 1100/3804 · 已得 941 个 Safe · RPC 1101
+    进度 1150/3804 · 已得 991 个 Safe · RPC 1151
+    进度 1200/3804 · 已得 1039 个 Safe · RPC 1201
+    进度 1250/3804 · 已得 1087 个 Safe · RPC 1251
+    进度 1300/3804 · 已得 1133 个 Safe · RPC 1301
+    进度 1350/3804 · 已得 1183 个 Safe · RPC 1351
+    进度 1400/3804 · 已得 1230 个 Safe · RPC 1401
+    进度 1450/3804 · 已得 1279 个 Safe · RPC 1451
+    进度 1500/3804 · 已得 1328 个 Safe · RPC 1501
+    进度 1550/3804 · 已得 1378 个 Safe · RPC 1551
+    进度 1650/3804 · 已得 1466 个 Safe · RPC 1651
+    进度 1700/3804 · 已得 1514 个 Safe · RPC 1701
+    进度 1750/3804 · 已得 1559 个 Safe · RPC 1751
+    进度 1800/3804 · 已得 1608 个 Safe · RPC 1801
+    进度 1850/3804 · 已得 1657 个 Safe · RPC 1851
+    进度 1900/3804 · 已得 1707 个 Safe · RPC 1901
+    进度 1950/3804 · 已得 1757 个 Safe · RPC 1951
+    进度 2000/3804 · 已得 1806 个 Safe · RPC 2001
+    进度 2050/3804 · 已得 1856 个 Safe · RPC 2051
+    进度 2100/3804 · 已得 1906 个 Safe · RPC 2101
+    进度 2150/3804 · 已得 1952 个 Safe · RPC 2151
+    进度 2200/3804 · 已得 2002 个 Safe · RPC 2201
+    进度 2250/3804 · 已得 2052 个 Safe · RPC 2251
+    进度 2300/3804 · 已得 2091 个 Safe · RPC 2301
+    进度 2350/3804 · 已得 2134 个 Safe · RPC 2351
+    进度 2400/3804 · 已得 2176 个 Safe · RPC 2401
+    进度 2450/3804 · 已得 2226 个 Safe · RPC 2451
+    进度 2500/3804 · 已得 2274 个 Safe · RPC 2501
+    进度 2550/3804 · 已得 2324 个 Safe · RPC 2551
+    进度 2600/3804 · 已得 2373 个 Safe · RPC 2601
+    进度 2700/3804 · 已得 2468 个 Safe · RPC 2701
+    进度 2750/3804 · 已得 2518 个 Safe · RPC 2751
+    进度 2800/3804 · 已得 2568 个 Safe · RPC 2801
+    进度 2850/3804 · 已得 2618 个 Safe · RPC 2851
+    进度 2900/3804 · 已得 2668 个 Safe · RPC 2901
+    进度 2950/3804 · 已得 2718 个 Safe · RPC 2951
+    进度 3000/3804 · 已得 2767 个 Safe · RPC 3001
+    进度 3050/3804 · 已得 2817 个 Safe · RPC 3051
+    进度 3100/3804 · 已得 2866 个 Safe · RPC 3101
+    进度 3150/3804 · 已得 2915 个 Safe · RPC 3151
+    进度 3200/3804 · 已得 2965 个 Safe · RPC 3201
+    进度 3250/3804 · 已得 3013 个 Safe · RPC 3251
+    进度 3300/3804 · 已得 3063 个 Safe · RPC 3301
+    进度 3350/3804 · 已得 3113 个 Safe · RPC 3351
+    进度 3400/3804 · 已得 3163 个 Safe · RPC 3401
+    进度 3450/3804 · 已得 3213 个 Safe · RPC 3451
+    进度 3500/3804 · 已得 3263 个 Safe · RPC 3501
+    进度 3550/3804 · 已得 3313 个 Safe · RPC 3551
+    进度 3600/3804 · 已得 3363 个 Safe · RPC 3601
+    进度 3650/3804 · 已得 3413 个 Safe · RPC 3651
+    进度 3700/3804 · 已得 3463 个 Safe · RPC 3701
+    进度 3750/3804 · 已得 3513 个 Safe · RPC 3751
+    进度 3804/3804 · 已得 3565 个 Safe · RPC 3805
+✓ [gnosis] 3565 个 multisig，239 个未部署
+✓ 去重: 4160 → 4159 个唯一 agent 地址
+✓ 写入 data/sources/olas_agents.csv（4159 行）
+⚠ [Olas agent] ⚠️ 通过但有 1 项提示
+    · 🔴 提醒：Olas agent 是 Gnosis Safe（合约账户）不是 EOA，特征工程需处理此差异
+    RPC 调用次数: 4443
+    唯一 agent 地址: 4159
+  ▶ ERC-8004 身份注册表
+▶ [erc8004] ERC-8004 注册表（须活跃度分层）
+▶ 链: base | IdentityRegistry 0x8004A169FB4a3325136EB29fA0ceB6D2e539a432
+✓ IdentityRegistry 存在，bytecode 130 字节
+    name() = AgentIdentity
+⚠   totalSupply() 不可用（eth_call 重试 4 次失败: You've reached the us），改用递增探测
+    连续 5 个 agentId 不存在，停止于 #15
+▶ 活跃度分层（判据：tx_count ≥ 20，且 tokenURI 非空若已抓取）...
+✓   active 0/8（0.0%）
+⚠ ⚠️ 建议只用 tier=active 的 0 个作正样本，dormant 的 8 个应排除或单列分析
+✓ 写入 data/sources/erc8004_base.csv（8 行）
+⚠ [ERC-8004 注册表] ⚠️ 通过但有 3 项提示
+    · 8 个 tier=unknown（RPC 取 nonce 失败），这些地址无法判定，建议重跑或排除
+    · active 仅 0 个，作正样本偏少，建议加大 --limit 或改用 Olas 作主力
+    · 🔴 提醒：ERC-8004 是自报身份，99.8% 是空壳，只能用 tier=active 子集
+    RPC 调用次数: 10
+    注册身份: 8
+    其中 active: 0
+  ▶ x402 提交者画像（6 切片配对金额，约 30 分钟；只需跑一次）
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+▶ [x402] x402 付款方（agent 弱正样本）
+    [profile] 切片 1/6 区块 42,755,201→42,758,201
+⚠ SQD 网络异常（URLError），第 1/10 次重试前等 1s（累计已等 0s）
+⚠ SQD 网络异常（URLError），第 2/10 次重试前等 2s（累计已等 1s）
+    [profile] 切片 2/6 区块 44,367,533→44,370,533
+    [profile] 切片 3/6 区块 45,979,865→45,982,865
+    [profile] 切片 4/6 区块 47,592,197→47,595,197
+    [profile] 切片 5/6 区块 49,204,529→49,207,529
+    [profile] 切片 6/6 区块 50,816,861→50,819,861
+✓ 写入 data/sources/x402_facilitators.csv（663 行）
+✓   [profile] 提交者 663 个: {'retail': 248, 'mixed': 219, 'x402': 196}
+    提交者画像: 663
+  ▶ agenteconomy.to 索引（趋势参考，不参与建模）
+▶ [agenteconomy] 聚合趋势 + Dune 查询 ID
+▶ GET https://agenteconomy.to/data.json
+✓ 数据更新时间: 2026-09-11T02:00:02.614269Z
+▶ ① 底层 Dune 查询（8 个，可直接 fork）:
+  x402Cumulative       https://dune.com/queries/7895747   成本 9.27 credits
+  x402Daily            https://dune.com/queries/7881006   成本 4.78 credits
+  baseAgentic          https://dune.com/queries/6731879   成本 6.05 credits
+  virtualsAcp          https://dune.com/queries/7881007   成本 0.39 credits
+  erc8004Registry      https://dune.com/queries/7881124   成本 1.97 credits
+  olas                 https://dune.com/queries/7881008   成本 0.76 credits
+  x402TokenSplit       https://dune.com/queries/7931767   成本 1.37 credits
+  x402Chains           https://dune.com/queries/6166650
+✓ 写入 data/sources/agenteconomy_dune_queries.csv（8 行）
+⚠ [Dune 查询 ID] ⚠️ 通过但有 1 项提示
+    · 这些查询全跑一遍约需 24.6 credits（Dune 免费层 2500/月）
+▶ ② 可用时间序列（12 组）:
+  baseAgentic.daily                    253 行  字段: day, consumer, infrastructure, total
+  virtualsAcp.daily                     90 行  字段: day, memos, senders
+  tempoMpp.daily                        90 行  字段: day, events, payers, payees
+  erc8004Registry.daily                 90 行  字段: day, agents
+  x402.daily                            60 行  字段: day, txs
+  olas.weekly                           52 行  字段: week, txs
+  x402.monthly                          12 行  字段: month, txs, vol
+  x402.chains                           12 行  字段: name, txs, color
+  erc8004Registry.chains                12 行  字段: name, agents
+  sources                                8 行  字段: name, author, queryId
+  olas.chains                            8 行  字段: name, txs
+  x402.protocols                         6 行  字段: name, share, color
+✓ 写入 data/sources/agenteconomy_raw.json
+✓ 原始 JSON 已存盘，可用于趋势交叉验证
+✓ [agenteconomy 原始数据] ✅ 通过
+    Dune 查询数: 8
+    时间序列组数: 12
+  ▶ Coinglass 付费数据源（9 个端点）
+▶ [coinglass] 全部 9 个数据源（逐个降级）
+▶ ── ① 交易所链上转账 → 人类样本候选
+▶ ① 拉取 USDT 的交易所链上转账（20 页）
+  档位 hobbyist = 30 req/min，预计 0.8 分钟
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ② 交易所余额快照
+▶ ② 拉取 USDT 的交易所余额快照
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ③ 现货支持币种
+▶ ③ 拉取现货支持币种
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ④ 恐慌&贪婪指数
+▶ ④ 拉取恐慌&贪婪指数
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ⑤ AHR999 抄底指标
+▶ ⑤ 拉取 AHR999 指标
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ⑥ 稳定币总市值
+▶ ⑥ 拉取稳定币总市值
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ⑦ Coinbase 溢价指数
+▶ ⑦ 拉取 Coinbase 溢价指数（interval=1d）
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ⑧ 牛市顶部指标
+▶ ⑧ 拉取牛市顶部指标
+⚠    ⏭ 档位不含（需升级套餐）
+▶ ── ⑨ ETF 资金流 × 元数据
+▶ ⑨ 拉取 BTC ETF 资金流 × 元数据
+⚠    ⏭ 档位不含（需升级套餐）
+  
+✓ 汇总: 0 个成功 / 9 个档位不含 / 0 个出错
+    ① 交易所链上转账 → 人类样本候选           ⏭ 档位不含（需升级套餐）
+    ② 交易所余额快照                    ⏭ 档位不含（需升级套餐）
+    ③ 现货支持币种                     ⏭ 档位不含（需升级套餐）
+    ④ 恐慌&贪婪指数                    ⏭ 档位不含（需升级套餐）
+    ⑤ AHR999 抄底指标                ⏭ 档位不含（需升级套餐）
+    ⑥ 稳定币总市值                     ⏭ 档位不含（需升级套餐）
+    ⑦ Coinbase 溢价指数              ⏭ 档位不含（需升级套餐）
+    ⑧ 牛市顶部指标                     ⏭ 档位不含（需升级套餐）
+    ⑨ ETF 资金流 × 元数据              ⏭ 档位不含（需升级套餐）
+✗ 🔴 全部 9 个端点都返回 401 "Upgrade plan"。
+     已实测排除的代码侧原因:
+       ① key 未被识别? 否 —— 不带 key 返回 "API key missing"，带 key 返回 "Upgrade plan"，两者不同即说明 key 被读到了
+       ② header 名写错? 否 —— 试过 6 种，只有 CG-API-KEY 被识别，其余均返回 "API key missing"
+       ③ API 版本不对? 否 —— v3 与 v4 返回同样的 "Upgrade plan"
+       ④ 端点路径写错? 否 —— 不存在的路径返回 404 "Endpoint not found"，真实端点返回 401，说明服务端先路由后鉴权，401 是真实的权限判定
+⚠    ⇒ key 有效、调用方式正确，但该账户当前无任何端点权限。
+     请到 coinglass.com 确认（这三项只能你自己查）:
+       · 订阅是否已生效、是否已过期
+       · 这个 key 是否属于已订阅的那个账户（同一邮箱下可能有多个 key）
+       · 所购套餐是否覆盖 Open API（部分套餐只含网页端功能）
+
+───────────────────────────────────────────────────────────────
+  [2/7] 全窗口发现（30k 方案核心）→ 三组真值池
+───────────────────────────────────────────────────────────────
+  ① hotwallets  窗口内均布切片反推 CEX 热钱包
+  ② main        ★全窗口一趟：x402 付款方(发现即采集事件活动)
+                 + Olas Safe 执行事件 + 热钱包提币接收方
+  ③ mev         隔桶抽样识别原子套利 bot（判据与论文同紧度）
+  ④ probe       human 候选活跃度探针（只看活动量，不看时间分布）
+
+  每个 chunk 完成即落盘 —— 中断后重跑本脚本自动续采。
+
+bin/run_all.sh: line 348: SWEEP_ARGS[@]: unbound variable

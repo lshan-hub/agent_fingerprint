@@ -1,0 +1,15 @@
+feature,step,kept,importance
+f_top_to_share,kept,1,0.44703528
+f_top_method_share,kept,1,0.18748361
+f_failed_ratio,kept,1,0.061407026
+f_unique_to_ratio,kept,1,0.03919447
+f_consec_block_ratio,kept,1,0.031158503
+f_same_block_ratio,kept,1,0.030047579
+f_peak_hour_share,kept,1,0.02577767
+f_burstiness,kept,1,0.020772649
+f_night_ratio,kept,1,0.016834546
+f_memory_coef,kept,1,0.016200254
+f_method_nunique,corr_dedup,0,0.046307594
+f_to_entropy,corr_dedup,0,0.04178724
+f_repeat_pair_ratio,corr_dedup,0,0.020415014
+f_method_entropy,corr_dedup,0,0.015578519

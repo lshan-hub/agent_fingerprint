@@ -1,0 +1,850 @@
+  运行日志: logs/run_20260913_142015.log
+═══════════════════════════════════════════════════════════════
+  真实数据模式（30k 样本方案）
+    链       : base
+    窗口     : 完整建模窗口 2026-03-01 ~ 2026-09-03（187 天）
+    每组配额 : agent 13,000 / bot 11,000 / human 6,000 ⇒ 合计 30,000
+               （成本感知分配：agent 事件零成本、human 全窗口最贵）
+    预计耗时 : 约 23 万次请求 ≈ 12h 标称 / 25-37h 含 SQD 过载
+               discover ≈2.5h + activity ≈10h（可中断续跑，建议挂通宵）
+    磁盘预算 : data/sweep 峰值 30-50 GB + data/raw 10-15 GB
+    起始阶段 : activity
+    解释器   : python3
+═══════════════════════════════════════════════════════════════
+
+⏭  跳过阶段 sources
+
+⏭  跳过阶段 discover
+
+⏭  跳过阶段 addresses
+
+───────────────────────────────────────────────────────────────
+  [4/7] 采集 + 装配（最长的一步）→ data/raw/base/
+───────────────────────────────────────────────────────────────
+  collect: bot 36 段(4.5%) / human ★全窗口连续 / olas 全窗口
+  assemble: 配额选样 + 卫生规则 + 写 3 万个地址 JSON + 漏斗报告
+  ★ agent 组的事件活动已在 discover 的 main 趟采好，这里不再重复扫。
+
+  🔴 human 为什么必须全窗口连续（而不是像 bot 那样分段省时间）：
+     f01 只在同一 seg 内算 Δt，跨段是采样造成的人为断点。
+     人类天然低频（全窗口约 40 笔），一分段每段就凑不出相邻活动对，
+     Δt 有效样本 <5 ⇒ 整组在特征阶段被剔除（旧管线只剩 56 个的根因）。
+  ⇒ 这一步约 8 小时，是本阶段主要耗时，可中断续跑。
+
+  ▶ 采集 + 装配（collect → assemble）
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+▶ 窗口 42,755,201 → 50,819,862（8,064,661 块 ≈ 187 天）
+  
+▶ ━━━ 阶段 collect ━━━
+  [collect_bot] 15,399 个地址 / 16 批 × 36 段
+✓ [collect_bot] 全部 576 个 chunk 已完成（断点续跑跳过）
+  [collect_human] 7,500 个地址 / 8 批 × 1 段
+✓ [collect_human] 全部 3232 个 chunk 已完成（断点续跑跳过）
+  [collect_olas] 595 个地址 / 1 批 × 1 段
+✓ [collect_olas] 全部 404 个 chunk 已完成（断点续跑跳过）
+  
+▶ ━━━ 阶段 assemble ━━━
+✓ [assemble] 重分区完成: 48,400,906 条记录（3.7 分钟）
+⚠ [assemble] bot 池不足配额，agent +5,305 补足总量
+  [assemble] 过选缓冲 +2%: {'agent': 18691, 'bot': 5695, 'human': 6112} ⇒ 写盘按目标 {'agent': 18305, 'bot': 5695, 'human': 6000} 精确截断
+▶ [assemble] 选样: agent 18,691（olas/erc8004 291 + x402 18,400） | bot 5,695（池 5,695） | human 6,112（池 6,112）
+    [assemble] agent 采集段数=1 ⇒ 连续流（seg≡0，全部相邻对有效）
+    [assemble] bot 采集段数=36 ⇒ 分段（段间不计 Δt）
+    [assemble] human 采集段数=1 ⇒ 连续流（seg≡0，全部相邻对有效）
+    [assemble] 分区 32/256 | 已写 agent=2,353, bot=719, human=781
+    [assemble] 分区 64/256 | 已写 agent=4,746, bot=1,453, human=1,551
+    [assemble] 分区 96/256 | 已写 agent=7,053, bot=2,139, human=2,311
+    [assemble] 分区 128/256 | 已写 agent=9,406, bot=2,827, human=3,065
+    [assemble] 分区 160/256 | 已写 agent=11,820, bot=3,523, human=3,866
+    [assemble] 分区 192/256 | 已写 agent=14,073, bot=4,211, human=4,598
+    [assemble] 分区 224/256 | 已写 agent=16,380, bot=4,957, human=5,375
+    [assemble] 分区 256/256 | 已写 agent=18,305, bot=5,695, human=6,000
+✓ [assemble] 漏斗报告 → figures/SAMPLE_FUNNEL_base.md
+✓ [assemble] ✅ 有效样本合计 30,000（agent 18,305 / bot 5,695 / human 6,000）| 目标 30,000
+✓ 全部阶段完成
+
+  活动流现状：
+    agent  18305 个地址
+    bot  5695 个地址
+    human  6000 个地址
+  样本漏斗报告: figures/SAMPLE_FUNNEL_base.md（论文表 3.1/3.2 数据源）
+
+───────────────────────────────────────────────────────────────
+  [5/7] 装配特征宽表 → data/features/features_base.csv
+───────────────────────────────────────────────────────────────
+  6 族 57 特征：延迟 / 节律 / gas / nonce / 交互 / 金额
+  3 万个地址约需 10-30 分钟。
+
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+▶ 装配特征：base（6 族 / 57 特征）
+  [agent] 18305/18305 个地址通过 ≥20 条活动的门槛
+  [bot] 5695/5695 个地址通过 ≥20 条活动的门槛
+  [human] 6000/6000 个地址通过 ≥20 条活动的门槛
+✓ 写入 data/features/features_base.csv  (30000 行 × 62 列)
+
+各组样本量：
+group
+agent    18305
+human     6000
+bot       5695
+
+★ 各族关键指标的分组中位数：
+       f_dt_p05  f_frac_2to10s  f_burstiness  f_entropy_24h  f_txfrom_ratio  f_top_method_share  f_value_zero_ratio
+group                                                                                                              
+agent      14.0          0.006         0.516          0.701             0.0               1.000               1.000
+bot         2.0          0.085         0.355          0.650             1.0               0.611               0.990
+human     135.6          0.000         0.332          0.830             1.0               0.871               0.963
+
+⚠ [特征宽表] ⚠️ 通过但有 3 项提示
+    · f04_nonce 整族缺失: {'agent': '100%'} —— 结构性缺失，论文需交代「特征可得性差异」
+    · 🔴 元特征 ['f_txfrom_ratio', 'f_gas_avail_ratio', 'f_kind_entropy'] 描述数据可得性而非行为，建议用 NO_META_FEATURES 复测并报告差值
+    · 🔴 clean 集中 15/48 个特征缺失率组间差 >30pp，「有没有值」本身即可标识组别；论文主结论请引用 BEHAVIOR_FEATURES（32 个，三组均可算）
+  下一步：python3 src/modeling/train_xgb.py
+
+───────────────────────────────────────────────────────────────
+  [6/7] 训练 7 套特征集对照 → data/model/
+───────────────────────────────────────────────────────────────
+  从宽到严，每一套堵掉一条捷径：
+    model     全部 57 特征                  上界
+    latency   仅延迟族                      验证 H1
+    nometa    剔元特征                      堵协议形态
+    nowin     剔窗口依赖特征                堵采集窗口
+    clean     nometa + nowin                严对照
+    behavior  再剔 gas/nonce/value 三族     ★★★主结论（堵缺失模式）
+    timing    只剩延迟 + 节律               下界（堵交互对象）
+
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+✓ 载入 30000 行 × 62 列
+  类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  
+  ##############################################################
+▶ # 特征集 [model] 全部 57 特征（主模型） —— 57 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 57 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 57
+    Step 0 相关去重(|r|>0.95): 剔除 16 个 → 剩 41
+    Step 2 零重要性: 剔除 9 个 → 剩 32
+✓   ✅ 最终保留 32 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 3, 'min_child_weight': 1}  macro-F1=0.9997
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 0.7, 'subsample': 0.9}  macro-F1=0.9997
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.1, 'n_estimators': 200}  macro-F1=0.9997
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 1.0}  macro-F1=0.9997
+✓   ✅ Top-1 超参: {'n_estimators': 200, 'max_depth': 3, 'learning_rate': 0.1, 'subsample': 0.9, 'colsample_bytree': 0.7, 'min_child_weight': 1, 'reg_lambda': 1.0}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9997
+       human    recall = 0.9997
+       bot      recall = 0.9993
+       agent    recall = 0.9999
+
+              precision    recall  f1-score   support
+
+       human       1.00      1.00      1.00      6000
+         bot       1.00      1.00      1.00      5695
+       agent       1.00      1.00      1.00     18305
+
+    accuracy                           1.00     30000
+   macro avg       1.00      1.00      1.00     30000
+weighted avg       1.00      1.00      1.00     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_model
+       xgb_clf_full.pkl          518.4 KB
+       config.pkl                  1.3 KB
+       metrics.json                1.8 KB
+       feature_report.csv          2.5 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 67.6%
+       → 判为 bot   : 32.4%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 15.1s | OOF macro-F1 = 0.9997
+  ==============================================================
+  
+  ##############################################################
+▶ # 特征集 [latency] 仅延迟族 18 特征（验证 H1） —— 18 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 18 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 18
+    Step 0 相关去重(|r|>0.95): 剔除 4 个 → 剩 14
+    Step 2 零重要性: 剔除 0 个 → 剩 14
+✓   ✅ 最终保留 14 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 6, 'min_child_weight': 1}  macro-F1=0.9520
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 0.9, 'subsample': 0.9}  macro-F1=0.9520
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.1, 'n_estimators': 400}  macro-F1=0.9522
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 0.5}  macro-F1=0.9529
+✓   ✅ Top-1 超参: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.1, 'subsample': 0.9, 'colsample_bytree': 0.9, 'min_child_weight': 1, 'reg_lambda': 0.5}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9537
+       human    recall = 0.9462
+       bot      recall = 0.9364
+       agent    recall = 0.9706
+
+              precision    recall  f1-score   support
+
+       human       0.95      0.95      0.95      6000
+         bot       0.96      0.94      0.95      5695
+       agent       0.96      0.97      0.97     18305
+
+    accuracy                           0.96     30000
+   macro avg       0.96      0.95      0.95     30000
+weighted avg       0.96      0.96      0.96     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_latency
+       xgb_clf_full.pkl         3543.7 KB
+       config.pkl                  0.7 KB
+       metrics.json                1.9 KB
+       feature_report.csv          0.6 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 58.0%
+       → 判为 bot   : 42.0%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 36.0s | OOF macro-F1 = 0.9537
+  ==============================================================
+  
+  ##############################################################
+▶ # 特征集 [nometa] 剔除元特征（★关键对照·协议形态） —— 54 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 54 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 54
+    Step 0 相关去重(|r|>0.95): 剔除 15 个 → 剩 39
+    Step 2 零重要性: 剔除 2 个 → 剩 37
+✓   ✅ 最终保留 37 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 6, 'min_child_weight': 1}  macro-F1=0.9995
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 0.9, 'subsample': 0.9}  macro-F1=0.9995
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.05, 'n_estimators': 200}  macro-F1=0.9995
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 0.5}  macro-F1=0.9995
+✓   ✅ Top-1 超参: {'n_estimators': 200, 'max_depth': 6, 'learning_rate': 0.05, 'subsample': 0.9, 'colsample_bytree': 0.9, 'min_child_weight': 1, 'reg_lambda': 0.5}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9995
+       human    recall = 0.9995
+       bot      recall = 0.9991
+       agent    recall = 1.0000
+
+              precision    recall  f1-score   support
+
+       human       1.00      1.00      1.00      6000
+         bot       1.00      1.00      1.00      5695
+       agent       1.00      1.00      1.00     18305
+
+    accuracy                           1.00     30000
+   macro avg       1.00      1.00      1.00     30000
+weighted avg       1.00      1.00      1.00     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_nometa
+       xgb_clf_full.pkl          817.8 KB
+       config.pkl                  1.4 KB
+       metrics.json                1.8 KB
+       feature_report.csv          2.4 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 67.0%
+       → 判为 bot   : 33.0%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 21.9s | OOF macro-F1 = 0.9995
+  ==============================================================
+  
+  ##############################################################
+▶ # 特征集 [nowin] 剔除窗口依赖特征（对照·采集设计） —— 51 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 51 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 51
+    Step 0 相关去重(|r|>0.95): 剔除 14 个 → 剩 37
+    Step 2 零重要性: 剔除 8 个 → 剩 29
+✓   ✅ 最终保留 29 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 4, 'min_child_weight': 1}  macro-F1=0.9996
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 1.0, 'subsample': 1.0}  macro-F1=0.9997
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.1, 'n_estimators': 200}  macro-F1=0.9997
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 1.0}  macro-F1=0.9997
+✓   ✅ Top-1 超参: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.1, 'subsample': 1.0, 'colsample_bytree': 1.0, 'min_child_weight': 1, 'reg_lambda': 1.0}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9996
+       human    recall = 0.9993
+       bot      recall = 0.9993
+       agent    recall = 0.9999
+
+              precision    recall  f1-score   support
+
+       human       1.00      1.00      1.00      6000
+         bot       1.00      1.00      1.00      5695
+       agent       1.00      1.00      1.00     18305
+
+    accuracy                           1.00     30000
+   macro avg       1.00      1.00      1.00     30000
+weighted avg       1.00      1.00      1.00     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_nowin
+       xgb_clf_full.pkl          549.1 KB
+       config.pkl                  1.2 KB
+       metrics.json                1.8 KB
+       feature_report.csv          2.2 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 60.3%
+       → 判为 bot   : 39.7%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 15.8s | OOF macro-F1 = 0.9996
+  ==============================================================
+  
+  ##############################################################
+▶ # 特征集 [clean] 元特征+窗口特征全剔（★★严对照） —— 48 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 48 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 48
+    Step 0 相关去重(|r|>0.95): 剔除 13 个 → 剩 35
+    Step 2 零重要性: 剔除 1 个 → 剩 34
+✓   ✅ 最终保留 34 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 4, 'min_child_weight': 1}  macro-F1=0.9995
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 0.9, 'subsample': 1.0}  macro-F1=0.9995
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.05, 'n_estimators': 200}  macro-F1=0.9995
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 1.0}  macro-F1=0.9995
+✓   ✅ Top-1 超参: {'n_estimators': 200, 'max_depth': 4, 'learning_rate': 0.05, 'subsample': 1.0, 'colsample_bytree': 0.9, 'min_child_weight': 1, 'reg_lambda': 1.0}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9996
+       human    recall = 0.9995
+       bot      recall = 0.9993
+       agent    recall = 1.0000
+
+              precision    recall  f1-score   support
+
+       human       1.00      1.00      1.00      6000
+         bot       1.00      1.00      1.00      5695
+       agent       1.00      1.00      1.00     18305
+
+    accuracy                           1.00     30000
+   macro avg       1.00      1.00      1.00     30000
+weighted avg       1.00      1.00      1.00     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_clean
+       xgb_clf_full.pkl          757.6 KB
+       config.pkl                  1.3 KB
+       metrics.json                1.8 KB
+       feature_report.csv          2.1 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 57.9%
+       → 判为 bot   : 42.1%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 19.8s | OOF macro-F1 = 0.9996
+  ==============================================================
+  
+  ##############################################################
+▶ # 特征集 [behavior] 纯行为·三组均可算（★★★主结论） —— 32 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 32 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 32
+    Step 0 相关去重(|r|>0.95): 剔除 11 个 → 剩 21
+    Step 2 零重要性: 剔除 0 个 → 剩 21
+✓   ✅ 最终保留 21 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 6, 'min_child_weight': 1}  macro-F1=0.9810
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 0.9, 'subsample': 1.0}  macro-F1=0.9811
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.2, 'n_estimators': 200}  macro-F1=0.9808
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 0.5}  macro-F1=0.9811
+✓   ✅ Top-1 超参: {'n_estimators': 200, 'max_depth': 6, 'learning_rate': 0.2, 'subsample': 1.0, 'colsample_bytree': 0.9, 'min_child_weight': 1, 'reg_lambda': 0.5}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9812
+       human    recall = 0.9703
+       bot      recall = 0.9828
+       agent    recall = 0.9879
+
+              precision    recall  f1-score   support
+
+       human       0.96      0.97      0.97      6000
+         bot       1.00      0.98      0.99      5695
+       agent       0.99      0.99      0.99     18305
+
+    accuracy                           0.98     30000
+   macro avg       0.98      0.98      0.98     30000
+weighted avg       0.98      0.98      0.98     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_behavior
+       xgb_clf_full.pkl         1394.1 KB
+       config.pkl                  0.9 KB
+       metrics.json                1.9 KB
+       feature_report.csv          1.1 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 59.8%
+       → 判为 bot   : 40.2%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 25.8s | OOF macro-F1 = 0.9812
+  ==============================================================
+  
+  ##############################################################
+▶ # 特征集 [timing] 纯时间行为·最保守（结论下界） —— 24 个特征
+  ##############################################################
+  ==============================================================
+▶ Phase 0 — 数据准备与校验
+  ==============================================================
+    样本 30000 行 × 24 特征
+    类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+  ==============================================================
+▶ Phase 1 — 特征选择（4 步）
+  ==============================================================
+    Step 1 常数/全NaN: 剔除 0 个 → 剩 24
+    Step 0 相关去重(|r|>0.95): 剔除 6 个 → 剩 18
+    Step 2 零重要性: 剔除 0 个 → 剩 18
+✓   ✅ 最终保留 18 个特征
+  ==============================================================
+▶ Phase 2 — 逐步 GridSearchCV 调参
+  ==============================================================
+    轮 1/4 ['max_depth', 'min_child_weight'] → {'max_depth': 6, 'min_child_weight': 3}  macro-F1=0.9543
+    轮 2/4 ['subsample', 'colsample_bytree'] → {'colsample_bytree': 0.7, 'subsample': 0.7}  macro-F1=0.9544
+    轮 3/4 ['learning_rate', 'n_estimators'] → {'learning_rate': 0.1, 'n_estimators': 400}  macro-F1=0.9543
+    轮 4/4 ['reg_lambda'] → {'reg_lambda': 1.0}  macro-F1=0.9543
+✓   ✅ Top-1 超参: {'n_estimators': 400, 'max_depth': 6, 'learning_rate': 0.1, 'subsample': 0.7, 'colsample_bytree': 0.7, 'min_child_weight': 3, 'reg_lambda': 1.0}
+  ==============================================================
+▶ Phase 3 — Stratified 5-Fold OOF
+  ==============================================================
+    折 1/5 完成
+    折 2/5 完成
+    折 3/5 完成
+    折 4/5 完成
+    折 5/5 完成
+✓   ✅ OOF macro-F1 = 0.9565
+       human    recall = 0.9465
+       bot      recall = 0.9447
+       agent    recall = 0.9718
+
+              precision    recall  f1-score   support
+
+       human       0.95      0.95      0.95      6000
+         bot       0.96      0.94      0.95      5695
+       agent       0.97      0.97      0.97     18305
+
+    accuracy                           0.96     30000
+   macro avg       0.96      0.95      0.96     30000
+weighted avg       0.96      0.96      0.96     30000
+
+  ==============================================================
+▶ Phase 4 — 全量 Retrain 并落盘
+  ==============================================================
+✓   ✅ 落盘 /Users/annie/Desktop/agent_fingerprint/data/model/base_timing
+       xgb_clf_full.pkl         3198.8 KB
+       config.pkl                  0.9 KB
+       metrics.json                1.9 KB
+       feature_report.csv          0.8 KB
+  ==============================================================
+▶ Phase 5 — ★ 二分类对照实验（论文核心叙事）
+  ==============================================================
+✓   agent 样本 18305 个，用 human/bot 二分类器判定：
+       → 判为 human : 56.2%
+       → 判为 bot   : 43.8%
+    对标 Web 域 (arXiv 2607.26935): MLP 39.1% / SAINT 34.5% 漏检
+  ==============================================================
+✓ 训练完成，用时 37.4s | OOF macro-F1 = 0.9565
+  ==============================================================
+
+==================================================================
+# 三分类训练报告（base）
+
+样本: 30000 个地址 | 类别分布: {'agent': np.int64(18305), 'human': np.int64(6000), 'bot': np.int64(5695)}
+
+
+## 0. 超参数逐组扫描（论文表 5.1）
+
+分组扫描而非全组合网格：每轮只调一组相关超参，将当轮最优并入基线后进入下一轮，避免组合爆炸。
+
+每轮以分层交叉验证的 macro-F1 为准则。
+
+| 轮次 | 调参组 | 候选取值 | 组合数 | 当轮选定 | CV macro-F1 | 增量 |
+|---|---|---|---|---|---|---|
+| 1 | max_depth, min_child_weight | max_depth=[3, 4, 6]; min_child_weight=[1, 3] | 6 | max_depth=3; min_child_weight=1 | 0.9997 | — |
+| 2 | subsample, colsample_bytree | subsample=[0.7, 0.9, 1.0]; colsample_bytree=[0.7, 0.9, 1.0] | 9 | colsample_bytree=0.7; subsample=0.9 | 0.9997 | +0.0000 |
+| 3 | learning_rate, n_estimators | learning_rate=[0.05, 0.1, 0.2]; n_estimators=[200, 400] | 6 | learning_rate=0.1; n_estimators=200 | 0.9997 | +0.0000 |
+| 4 | reg_lambda | reg_lambda=[0.5, 1.0, 3.0] | 3 | reg_lambda=1.0 | 0.9997 | +0.0000 |
+
+**最终 Top-1 超参**: `n_estimators=200`, `max_depth=3`, `learning_rate=0.1`, `subsample=0.9`, `colsample_bytree=0.7`, `min_child_weight=1`, `reg_lambda=1.0`
+
+
+## 1. 7 套特征集对照（从宽到严，越往下越保守）
+
+| 特征集 | 说明 | 特征数 | OOF macro-F1 | agent 召回 | bot 召回 | human 召回 |
+|---|---|---|---|---|---|---|
+| **model** | 全部 57 特征（主模型） | 32 | **0.9997** | 1.000 | 0.999 | 1.000 |
+| **latency** | 仅延迟族 18 特征（验证 H1） | 14 | **0.9537** | 0.971 | 0.936 | 0.946 |
+| **nometa** | 剔除元特征（★关键对照·协议形态） | 37 | **0.9995** | 1.000 | 0.999 | 1.000 |
+| **nowin** | 剔除窗口依赖特征（对照·采集设计） | 29 | **0.9996** | 1.000 | 0.999 | 0.999 |
+| **clean** | 元特征+窗口特征全剔（★★严对照） | 34 | **0.9996** | 1.000 | 0.999 | 1.000 |
+| **behavior** | 纯行为·三组均可算（★★★主结论） | 21 | **0.9812** | 0.988 | 0.983 | 0.970 |
+| **timing** | 纯时间行为·最保守（结论下界） | 18 | **0.9565** | 0.972 | 0.945 | 0.947 |
+
+### 🔴 元特征贡献度 = +0.0002
+
+全部特征 macro-F1 0.9997 vs 剔除元特征 0.9995
+
+> ✅ **差值很小 ⇒ 判别力主要来自真实行为差异，不是协议形态。**
+> 这支撑「agent 有独特行为指纹」的论点。
+
+
+### 🔴 窗口依赖特征贡献度 = +0.0001
+
+全部特征 0.9997 vs 剔除窗口依赖特征 0.9996
+
+> 消融的 6 个特征: 3 个绝对跨度（span/active_days/longest_silence）+ 3 个周期覆盖度（entropy_dow/entropy_24h/active_hours）。
+> 后者尤其危险: 窗口不足一周时 dow 熵恒为 0，模型可靠「熵>0 ⇒ human」作弊。
+> 现三组窗口已统一为 302,400 块（7 天），此项验证是否还有残留泄漏。
+
+> ✅ **差值很小 ⇒ 归一化有效，判别力不来自采集窗口设计。**
+
+
+### ★★ 严对照（clean）macro-F1 = 0.9996
+
+> 同时剔除元特征与窗口依赖特征。
+> ⚠️ 但仍含 gas/nonce/value 三族 —— 它们对 agent 组缺失率 68~100%，XGBoost 可靠「有没有值」间接识别组别。
+
+
+### ★★★ 主结论：纯行为集（behavior）macro-F1 = 0.9812
+
+仅用 21 个三组均可算的特征（延迟 + 节律 + 交互），对全特征差值 +0.0185。
+
+> 这一栏排除了三类捷径: ①协议形态（元特征）②采集窗口（跨度特征）③缺失模式（gas/nonce/value 族）。
+> **论文的主结论应以这一栏为准** —— 它是唯一只能用「行为本身不同」来解释的结果。
+
+> ✅ 纯行为特征仍能三分类 ⇒ 「链上 AI agent 存在可测的行为指纹」这一核心论点成立。
+
+
+### 延迟族单独贡献
+
+仅用 14 个延迟特征达到 macro-F1 0.9537，全部特征 0.9997，差值 +0.0460。
+
+> 差值越小，说明 H1「响应延迟是核心信号」越成立。
+
+
+## 2. ★ 二分类对照实验（model）
+
+用 human/bot 二分类器去分 agent 地址：
+
+| 结果 | 占比 |
+|---|---|
+| agent → 判为 **human** | **67.6%** |
+| agent → 判为 **bot** | 32.4% |
+
+对标 Web 域 (arXiv 2607.26935): MLP 漏检 39.1% / SAINT 漏检 34.5%
+
+
+## 3. go/no-go 判定（以 behavior 为准）
+
+**🟢 GO —— 三分类信号成立，全速推进**
+
+
+macro-F1 = 0.9812（线 0.7） | agent 召回 = 0.9879（线 0.6）
+
+
+==================================================================
+✓ 完整报告：/Users/annie/Desktop/agent_fingerprint/figures/TRAIN_REPORT_base.md
+
+  ▶ 预测接口冒烟测试
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+✓ 与真值对比 accuracy = 1.0000
+✓ 预测结果写入 /Users/annie/Desktop/agent_fingerprint/data/features/pred_features_base.csv（30000 行）
+                                   address pred_label  p_human    p_bot  p_agent true_label
+0x00002e0a27f10a4f357e2cd46cbafbf9912b25b8      agent 0.000040 0.000030 0.999929      agent
+0x0000e7b46a09407388133125d0a2bcd3f0869cdb      agent 0.000047 0.000058 0.999895      agent
+0x0002873269ef5b1bffdf697980d70a4d0708b292      agent 0.000033 0.000069 0.999898      agent
+0x000425f1177a122f7c1851d4e6ebb43cef3eb6a2      agent 0.000118 0.000039 0.999843      agent
+0x0007f3ce36f74fd08f4657d7ccc97391034512c0      agent 0.000041 0.000030 0.999929      agent
+0x000cce574ceaf66a1573b1ce0a8fe2b388edfbea      agent 0.000049 0.000030 0.999921      agent
+0x000f05552f24850e75793d38c2bd0cbd249a9ff4      agent 0.000065 0.000038 0.999897      agent
+0x0014ff264f1389d1ccd74d0fac007d6806e72baa      agent 0.000060 0.000032 0.999908      agent
+0x00156e3266ce8cca44496e4a41e5a74c6aaebbf2      agent 0.000035 0.000032 0.999934      agent
+0x00185b311e5d867f4ccc6cfc326dbf5c165fcdd8      agent 0.000033 0.000031 0.999936      agent
+
+───────────────────────────────────────────────────────────────
+  [7/7] 出图 + go/no-go 判定 → figures/
+───────────────────────────────────────────────────────────────
+  6 张图 + 判定书。判定以最严的 behavior 集为准（与 train_xgb 同口径）。
+
+/Users/annie/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+▶ 分析：base
+  载入 30000 个地址
+✓ [建模输入] ✅ 通过
+  交叉验证 ...
+  出图 1-4 ...
+
+==================================================================
+# go/no-go 判定：🟢 GO
+
+**结论**：三分类信号成立，H1 得到支持。全速推进课题一。
+
+==================================================================
+✓ 完整判定书：/Users/annie/Desktop/agent_fingerprint/figures/GONOGO_VERDICT_base.md
+✓ 图表目录：/Users/annie/Desktop/agent_fingerprint/figures
+
+═══════════════════════════════════════════════════════════════
+  完成，用时 0 小时 15 分
+═══════════════════════════════════════════════════════════════
+
+  data/ 产出
+    sources          9 个文件,  10M
+    addresses        3 个文件, 7.7M
+    raw/base         30001 个文件, 2.2G
+    features         2 个文件,  21M
+    model            29 个文件,  11M
+
+  figures/ 产出
+    GONOGO_VERDICT_base.md
+    MISSING_FIGS_STATS_base.json
+    PAPER_ASSETS_base.md
+    SAMPLE_FUNNEL_base.md
+    TRAIN_REPORT_base.md
+    fig10_roc_ovr_base.png
+    fig1_latency_distribution_base.png
+    fig2_fast_response_ecdf_base.png
+    fig3_band_shares_base.png
+    fig4_burstiness_entropy_base.png
+    fig5_confusion_base.png
+    fig5_confusion_behavior_base.png
+    fig6_importance_base.png
+    fig6_importance_gain_base.png
+    fig7_learning_curve_base.png
+    fig8_tree_structure_base.png
+    fig9_oof_proba_base.png
+
+  重点看这四份：
+    figures/PAPER_ASSETS_base.md     论文图表对照清单（15 图 + 7 表）
+    figures/SAMPLE_FUNNEL_base.md    样本漏斗（论文表 3.1/3.2 数据源）
+    figures/GONOGO_VERDICT_base.md   go/no-go 判定书
+    figures/TRAIN_REPORT_base.md     7 套特征集对照 + 四类捷径分析
+
+  💡 data/sweep/ 是采集中间产物（30-50 GB），全部跑通并验收后可删除。
+
+
+───────────────────────────────────────────────────────────────
+  产物验收
+───────────────────────────────────────────────────────────────
+==================================================================
+  产物验收 —— 链: base
+==================================================================
+
+① 文件存在性
+  ✅ sources/ 存在且非空（9 项）
+  ✅ addresses/ 存在且非空（3 项）
+  ✅ raw/ 存在且非空（30005 项）
+  ✅ features/ 存在且非空（2 项）
+  ✅ model/ 存在且非空（36 项）
+  ✅ figures/ 存在且非空（24 项）
+  ✅ agent_olas.csv 已生成
+  ✅ bot_mev.csv 已生成
+  ✅ human_cex.csv 已生成
+
+② 数据完整性
+  ✅ raw/base/agent 采到 18305 个地址
+  ✅ raw/base/bot 采到 5695 个地址
+  ✅ raw/base/human 采到 6000 个地址
+  ✅ 特征宽表已生成
+  ✅ agent 组 18305 个样本（下限 25）
+  ✅ bot 组 5695 个样本（下限 25）
+  ✅ human 组 6000 个样本（下限 25）
+
+③ 科学有效性
+  ⚠️  地址清单含 3564 个非 base 链地址 —— 采集端 _filter_by_chain 会剔除，不影响结果
+  ✅ agent 组区块跨度中位 1,186,003 块 ≈ 27.5 天（需 ≥7 天）
+  ✅ bot 组区块跨度中位 3,452,760 块 ≈ 79.9 天（需 ≥7 天）
+  ✅ human 组区块跨度中位 6,582,026 块 ≈ 152.4 天（需 ≥7 天）
+
+④ 模型合理性
+  ✅ 7 套特征集全部训练完成
+  ✅ behavior macro-F1 = 0.9812（线 0.7）
+  ✅ behavior agent 召回 = 0.9879（线 0.6）
+  ✅ 全特征与 behavior 差值 +0.0185，捷径贡献可控
+
+⑤ 图表产出
+  ✅ fig1_latency_distribution_base.png（107KB）
+  ✅ fig2_fast_response_ecdf_base.png（87KB）
+  ✅ fig3_band_shares_base.png（68KB）
+  ✅ fig4_burstiness_entropy_base.png（637KB）
+  ✅ fig5_confusion_base.png（81KB）
+  ✅ fig6_importance_base.png（84KB）
+  ✅ GONOGO_VERDICT_base.md 已生成
+  ✅ TRAIN_REPORT_base.md 已生成
+
+==================================================================
+  通过 31 项 | 警告 1 项 | 失败 0 项
+==================================================================
+
+⚠️  提示（不影响可用性，但要在论文里交代）:
+   · 地址清单含 3564 个非 base 链地址 —— 采集端 _filter_by_chain 会剔除，不影响结果
+
+✅ 全部产物符合预期。
+
+───────────────────────────────────────────────────────────────
+  论文素材核对
+───────────────────────────────────────────────────────────────
+==================================================================
+  论文素材核对 —— 《链上AI_Agent账户行为指纹识别的研究》[base]
+==================================================================
+  ✅ 166KB                图4.1    特征体系总览（57 维六族）
+  ✅ 101KB                图4.2    三频带与突发性定义示意
+  ✅ 57KB                 图4.3    特征缺失率（协议形态导致的可得性差异）
+  ✅ 190KB                图5.1    模型架构 / 五阶段管线
+  ✅ 115KB                图5.2    消融实验框架
+  ✅ 107KB                图5.3    延迟分布
+  ✅ 87KB                 图5.4    最快响应 Δt(p05) 的经验累积分布
+  ✅ 67KB                 图5.5    三频带占比
+  ✅ 636KB                图5.6    突发性与熵
+  ✅ 75KB                 图5.7    学习曲线（样本量收益）
+  ✅ 81KB                 图5.8    纯行为特征集的混淆矩阵
+  ✅ 95KB                 图5.8b   （附）behavior 集混淆矩阵
+  ✅ 83KB                 图5.9    特征重要性（XGBoost 增益）
+  ✅ 92KB                 图5.9b   （附）增益版重要性
+  ✅ 62KB                 图5.10   OOF 预测概率分布
+  ✅ 62KB                 图5.11   One-vs-Rest ROC 曲线
+  ✅ 110KB                图5.12   单棵树结构展开
+  ✅ 已生成                  表3.1    三组真值来源与识别方法汇总
+  ✅ 已生成                  表3.2    活动流采集结果与有效样本量
+  ✅ 已生成                  表5.1    超参数逐组扫描过程
+  ✅ 已生成                  表5.2    七组特征集定义与结果
+  ✅ 已生成                  表5.3    最快响应特征的两两分布检验
+  ✅ 已生成                  表5.4    七组特征集的袋外三分类性能
+  ✅ 已生成                  表5.5    二分类对照实验（失效方向）
+
+  有效样本合计 30,000 —— {'agent': 18305, 'human': 6000, 'bot': 5695}
+
+  清单 → figures/PAPER_ASSETS_base.md
+==================================================================
+  ✅ 论文所需的全部图表均已产出。
+==================================================================
+

@@ -1,0 +1,88 @@
+{
+  "oof_macro_f1": 0.9704576545674496,
+  "oof_recall": {
+    "human": 0.9425,
+    "bot": 0.9803336259877086,
+    "agent": 0.9822999180551761
+  },
+  "confusion_matrix": [
+    [
+      5655,
+      14,
+      331
+    ],
+    [
+      12,
+      5583,
+      100
+    ],
+    [
+      311,
+      13,
+      17981
+    ]
+  ],
+  "labels": [
+    "human",
+    "bot",
+    "agent"
+  ],
+  "n_folds": 5,
+  "binary_control": {
+    "n_agent": 18305,
+    "as_human_pct": 54.21469543840481,
+    "as_bot_pct": 45.78530456159519,
+    "web_domain_mlp": 39.1,
+    "web_domain_saint": 34.5
+  },
+  "n_samples": 30000,
+  "n_features": 24,
+  "best_params": {
+    "n_estimators": 400,
+    "max_depth": 6,
+    "learning_rate": 0.05,
+    "subsample": 0.9,
+    "colsample_bytree": 0.7,
+    "min_child_weight": 1,
+    "reg_lambda": 3.0
+  },
+  "tuning_rounds": [
+    {
+      "round": 1,
+      "group": "max_depth, min_child_weight",
+      "candidates": "max_depth=[3, 4, 6]; min_child_weight=[1, 3]",
+      "n_combos": 6,
+      "chosen": "max_depth=6; min_child_weight=1",
+      "cv_macro_f1": 0.9699,
+      "delta": null
+    },
+    {
+      "round": 2,
+      "group": "subsample, colsample_bytree",
+      "candidates": "subsample=[0.7, 0.9, 1.0]; colsample_bytree=[0.7, 0.9, 1.0]",
+      "n_combos": 9,
+      "chosen": "colsample_bytree=0.7; subsample=0.9",
+      "cv_macro_f1": 0.9703,
+      "delta": 0.0003
+    },
+    {
+      "round": 3,
+      "group": "learning_rate, n_estimators",
+      "candidates": "learning_rate=[0.05, 0.1, 0.2]; n_estimators=[200, 400]",
+      "n_combos": 6,
+      "chosen": "learning_rate=0.05; n_estimators=400",
+      "cv_macro_f1": 0.97,
+      "delta": -0.0003
+    },
+    {
+      "round": 4,
+      "group": "reg_lambda",
+      "candidates": "reg_lambda=[0.5, 1.0, 3.0]",
+      "n_combos": 3,
+      "chosen": "reg_lambda=3.0",
+      "cv_macro_f1": 0.9702,
+      "delta": 0.0002
+    }
+  ],
+  "elapsed_s": 39.9
+}

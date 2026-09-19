@@ -1,0 +1,17 @@
+feature,step,kept,importance
+f_nonce_seq_ratio,kept,1,0.39092156
+f_value_zero_ratio,kept,1,0.14615968
+f_gas_price_mode_share,kept,1,0.11098475
+f_nonce_span,kept,1,0.10984394
+f_value_cv,kept,1,0.025660837
+f_nonce_burst_ratio,kept,1,0.018646937
+f_gas_price_median,kept,1,0.01326036
+f_micro_value_ratio,kept,1,0.011863408
+f_gas_nunique_ratio,kept,1,0.009236628
+f_gas_price_cv,kept,1,0.008595945
+f_value_nunique_ratio,kept,1,0.005631224
+f_value_median_eth,kept,1,0.0049708397
+f_gas_price_p95_p50,kept,1,0.0041332184
+f_round_value_ratio,kept,1,0.0023700427
+f_nonce_gap_ratio,corr_dedup,0,0.13570385
+f_nonce_burst_max,corr_dedup,0,0.0020167793

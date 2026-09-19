@@ -1,0 +1,3722 @@
+{
+  "updatedAt": "2026-09-12T02:05:45.854692Z",
+  "meta": {
+    "schema": 3,
+    "queries": {
+      "x402Cumulative": {
+        "queryId": 7895747,
+        "executionId": "01M29NQWN2YVFX3DNEXR7ZF110",
+        "executedAt": "2026-09-12T02:05:45.854692Z",
+        "lastCostCredits": 13.848653847,
+        "lastWindowStart": "2026-09-07"
+      },
+      "x402Daily": {
+        "queryId": 7881006,
+        "executionId": "01M29NHZ4M6CBJ6VR4C9MB4A5A",
+        "executedAt": "2026-09-12T02:02:53.245368Z",
+        "lastCostCredits": 5.504038462,
+        "lastWindowStart": "2026-09-07"
+      },
+      "baseAgentic": {
+        "queryId": 6731879,
+        "executionId": "01M29NMXEZM1BCHQPJ9N7GRHNH",
+        "executedAt": "2026-09-12T02:03:34.333019Z",
+        "lastCostCredits": 6.279423077
+      },
+      "virtualsAcp": {
+        "queryId": 7881007,
+        "executionId": "01M29NQQ171KSREJ21863VPEDZ",
+        "executedAt": "2026-09-12T02:04:29.865949Z",
+        "lastCostCredits": 0.223026316,
+        "lastWindowStart": "2026-09-07"
+      },
+      "erc8004Registry": {
+        "queryId": 7881124,
+        "executionId": "01M272YY3TNZV23NJJYZGWHCJ0",
+        "executedAt": "2026-09-11T01:58:23.30739Z",
+        "lastCostCredits": 1.968653847,
+        "lastWindowStart": "2026-09-05"
+      },
+      "olas": {
+        "queryId": 7881008,
+        "executionId": "01M1QMN5M0Q7C4H3VK19DJK6WA",
+        "executedAt": "2026-09-05T01:59:47.048045Z",
+        "lastCostCredits": 0.764852942,
+        "lastWindowStart": "2026-08-24"
+      },
+      "x402TokenSplit": {
+        "queryId": 7931767,
+        "executionId": "01M29NP7PMF5S1FC11K6JRWVV2",
+        "executedAt": "2026-09-12T02:04:21.472447Z",
+        "lastCostCredits": 1.737884616
+      },
+      "x402Chains": {
+        "queryId": 6166650,
+        "executionId": "01M0CRJPC8YNVG97M8Q8N0DGXQ",
+        "executedAt": "2026-08-19T10:27:46.041211Z"
+      }
+    }
+  },
+  "sources": [
+    {
+      "name": "x402 Payment Analytics",
+      "author": "@thechriscen",
+      "queryId": 7895747
+    },
+    {
+      "name": "x402 Analytics",
+      "author": "@hashed_official",
+      "queryId": 7881006
+    },
+    {
+      "name": "BASE Agentic Ecosystem",
+      "author": "@ax1research",
+      "queryId": 6731879
+    },
+    {
+      "name": "Virtuals ACP",
+      "author": "@hashed_official",
+      "queryId": 7881007
+    },
+    {
+      "name": "ERC-8004 Trustless Agents",
+      "author": "@hashed_official",
+      "queryId": 7881124
+    },
+    {
+      "name": "Olas Ecosystem Activity",
+      "author": "@adrian0x",
+      "queryId": 7881008
+    },
+    {
+      "name": "x402 token split (Base, trailing 30d)",
+      "author": "agenteconomy",
+      "queryId": 7931767
+    },
+    {
+      "name": "x402 Transactions by Chain",
+      "author": "@thechriscen",
+      "queryId": 6166650
+    }
+  ],
+  "x402": {
+    "asOf": "2026-09-12T02:02:53.245368Z",
+    "totalTxs": 186770472,
+    "totalVolume": 41735704,
+    "facilitatorsTracked": 18,
+    "monthly": [
+      {
+        "month": "Oct 25",
+        "txs": 4092364,
+        "vol": 4223220
+      },
+      {
+        "month": "Nov 25",
+        "txs": 52592786,
+        "vol": 20544830
+      },
+      {
+        "month": "Dec 25",
+        "txs": 54248231,
+        "vol": 9412930
+      },
+      {
+        "month": "Jan 26",
+        "txs": 19193699,
+        "vol": 1200235
+      },
+      {
+        "month": "Feb 26",
+        "txs": 4068035,
+        "vol": 1624318
+      },
+      {
+        "month": "Mar 26",
+        "txs": 5093759,
+        "vol": 1838531
+      },
+      {
+        "month": "Apr 26",
+        "txs": 4597972,
+        "vol": 1614844
+      },
+      {
+        "month": "May 26",
+        "txs": 5339396,
+        "vol": 179793
+      },
+      {
+        "month": "Jun 26",
+        "txs": 4778845,
+        "vol": 272293
+      },
+      {
+        "month": "Jul 26",
+        "txs": 6010540,
+        "vol": 238084
+      },
+      {
+        "month": "Aug 26",
+        "txs": 17855635,
+        "vol": 437476
+      },
+      {
+        "month": "Sep 26",
+        "txs": 8899210,
+        "vol": 149150
+      }
+    ],
+    "daily": [
+      {
+        "day": "2026-07-15",
+        "txs": 194926
+      },
+      {
+        "day": "2026-07-16",
+        "txs": 186630
+      },
+      {
+        "day": "2026-07-17",
+        "txs": 187142
+      },
+      {
+        "day": "2026-07-18",
+        "txs": 184740
+      },
+      {
+        "day": "2026-07-19",
+        "txs": 186106
+      },
+      {
+        "day": "2026-07-20",
+        "txs": 191867
+      },
+      {
+        "day": "2026-07-21",
+        "txs": 191604
+      },
+      {
+        "day": "2026-07-22",
+        "txs": 193910
+      },
+      {
+        "day": "2026-07-23",
+        "txs": 185938
+      },
+      {
+        "day": "2026-07-24",
+        "txs": 196929
+      },
+      {
+        "day": "2026-07-25",
+        "txs": 193462
+      },
+      {
+        "day": "2026-07-26",
+        "txs": 194778
+      },
+      {
+        "day": "2026-07-27",
+        "txs": 200139
+      },
+      {
+        "day": "2026-07-28",
+        "txs": 197331
+      },
+      {
+        "day": "2026-07-29",
+        "txs": 202758
+      },
+      {
+        "day": "2026-07-30",
+        "txs": 193897
+      },
+      {
+        "day": "2026-07-31",
+        "txs": 198697
+      },
+      {
+        "day": "2026-08-01",
+        "txs": 198067
+      },
+      {
+        "day": "2026-08-02",
+        "txs": 186203
+      },
+      {
+        "day": "2026-08-03",
+        "txs": 192344
+      },
+      {
+        "day": "2026-08-04",
+        "txs": 188745
+      },
+      {
+        "day": "2026-08-05",
+        "txs": 192196
+      },
+      {
+        "day": "2026-08-06",
+        "txs": 187162
+      },
+      {
+        "day": "2026-08-07",
+        "txs": 192313
+      },
+      {
+        "day": "2026-08-08",
+        "txs": 190645
+      },
+      {
+        "day": "2026-08-09",
+        "txs": 190572
+      },
+      {
+        "day": "2026-08-10",
+        "txs": 184795
+      },
+      {
+        "day": "2026-08-11",
+        "txs": 186732
+      },
+      {
+        "day": "2026-08-12",
+        "txs": 189239
+      },
+      {
+        "day": "2026-08-13",
+        "txs": 226057
+      },
+      {
+        "day": "2026-08-14",
+        "txs": 212131
+      },
+      {
+        "day": "2026-08-15",
+        "txs": 220193
+      },
+      {
+        "day": "2026-08-16",
+        "txs": 248660
+      },
+      {
+        "day": "2026-08-17",
+        "txs": 189888
+      },
+      {
+        "day": "2026-08-18",
+        "txs": 213093
+      },
+      {
+        "day": "2026-08-19",
+        "txs": 743058
+      },
+      {
+        "day": "2026-08-20",
+        "txs": 952531
+      },
+      {
+        "day": "2026-08-21",
+        "txs": 859255
+      },
+      {
+        "day": "2026-08-22",
+        "txs": 972888
+      },
+      {
+        "day": "2026-08-23",
+        "txs": 584062
+      },
+      {
+        "day": "2026-08-24",
+        "txs": 238890
+      },
+      {
+        "day": "2026-08-25",
+        "txs": 1705132
+      },
+      {
+        "day": "2026-08-26",
+        "txs": 1467034
+      },
+      {
+        "day": "2026-08-27",
+        "txs": 1528992
+      },
+      {
+        "day": "2026-08-28",
+        "txs": 1256764
+      },
+      {
+        "day": "2026-08-29",
+        "txs": 1285303
+      },
+      {
+        "day": "2026-08-30",
+        "txs": 1244492
+      },
+      {
+        "day": "2026-08-31",
+        "txs": 1359228
+      },
+      {
+        "day": "2026-09-01",
+        "txs": 1906277
+      },
+      {
+        "day": "2026-09-02",
+        "txs": 1453415
+      },
+      {
+        "day": "2026-09-03",
+        "txs": 1124974
+      },
+      {
+        "day": "2026-09-04",
+        "txs": 861356
+      },
+      {
+        "day": "2026-09-05",
+        "txs": 715515
+      },
+      {
+        "day": "2026-09-06",
+        "txs": 765871
+      },
+      {
+        "day": "2026-09-07",
+        "txs": 1138650
+      },
+      {
+        "day": "2026-09-08",
+        "txs": 301146
+      },
+      {
+        "day": "2026-09-09",
+        "txs": 202062
+      },
+      {
+        "day": "2026-09-10",
+        "txs": 200706
+      },
+      {
+        "day": "2026-09-11",
+        "txs": 211456
+      },
+      {
+        "day": "2026-09-12",
+        "txs": 14584
+      }
+    ],
+    "protocols": [
+      {
+        "name": "PayAI",
+        "share": 26.8,
+        "color": "#10B981"
+      },
+      {
+        "name": "Other",
+        "share": 25.3,
+        "color": "#6B7280"
+      },
+      {
+        "name": "Coinbase",
+        "share": 23.3,
+        "color": "#0052FF"
+      },
+      {
+        "name": "Dexter",
+        "share": 17.6,
+        "color": "#6366F1"
+      },
+      {
+        "name": "DayDreams",
+        "share": 6.3,
+        "color": "#F59E0B"
+      },
+      {
+        "name": "Pieverse",
+        "share": 0.7,
+        "color": "#EC4899"
+      }
+    ],
+    "chainsTracked": 12,
+    "chains": [
+      {
+        "name": "Base",
+        "txs": 84969790,
+        "color": "#0052FF"
+      },
+      {
+        "name": "Solana",
+        "txs": 48235859,
+        "color": "#9945FF"
+      },
+      {
+        "name": "Polygon",
+        "txs": 29472684,
+        "color": "#8247E5"
+      },
+      {
+        "name": "BNB",
+        "txs": 910185,
+        "color": "#F0B90B"
+      },
+      {
+        "name": "Celo",
+        "txs": 760020,
+        "color": "#14B8A6"
+      },
+      {
+        "name": "Xlayer",
+        "txs": 134206,
+        "color": "#6366F1"
+      },
+      {
+        "name": "Monad",
+        "txs": 21010,
+        "color": "#10B981"
+      },
+      {
+        "name": "Avalanche",
+        "txs": 4979,
+        "color": "#E84142"
+      },
+      {
+        "name": "Arbitrum",
+        "txs": 1442,
+        "color": "#12AAFF"
+      },
+      {
+        "name": "Ethereum",
+        "txs": 522,
+        "color": "#F97316"
+      },
+      {
+        "name": "Sei",
+        "txs": 145,
+        "color": "#14B8A6"
+      },
+      {
+        "name": "Optimism",
+        "txs": 138,
+        "color": "#F59E0B"
+      }
+    ],
+    "chainsAsOf": "2026-08-19T10:27:46.041211Z",
+    "chainsSource": "dune:@thechriscen (read-only)",
+    "tokenSplit": {
+      "asOf": "2026-09-12T02:04:21.472447Z",
+      "windowDays": 30,
+      "usdcSharePct": 94.77,
+      "totalPayments": 41542,
+      "note": "trailing 30d, Base, live facilitator registry scope; volume-weighted share"
+    }
+  },
+  "baseAgentic": {
+    "asOf": "2026-09-12T02:03:34.333019Z",
+    "totalTxs": 2705127,
+    "daily": [
+      {
+        "day": "2026-01-01",
+        "consumer": 809,
+        "infrastructure": 3340,
+        "total": 4149
+      },
+      {
+        "day": "2026-01-02",
+        "consumer": 886,
+        "infrastructure": 3689,
+        "total": 4575
+      },
+      {
+        "day": "2026-01-03",
+        "consumer": 1072,
+        "infrastructure": 3869,
+        "total": 4941
+      },
+      {
+        "day": "2026-01-04",
+        "consumer": 1372,
+        "infrastructure": 3141,
+        "total": 4513
+      },
+      {
+        "day": "2026-01-05",
+        "consumer": 953,
+        "infrastructure": 5826,
+        "total": 6779
+      },
+      {
+        "day": "2026-01-06",
+        "consumer": 1469,
+        "infrastructure": 7105,
+        "total": 8574
+      },
+      {
+        "day": "2026-01-07",
+        "consumer": 1430,
+        "infrastructure": 4458,
+        "total": 5888
+      },
+      {
+        "day": "2026-01-08",
+        "consumer": 2632,
+        "infrastructure": 7581,
+        "total": 10213
+      },
+      {
+        "day": "2026-01-09",
+        "consumer": 1630,
+        "infrastructure": 3809,
+        "total": 5439
+      },
+      {
+        "day": "2026-01-10",
+        "consumer": 1741,
+        "infrastructure": 5381,
+        "total": 7122
+      },
+      {
+        "day": "2026-01-11",
+        "consumer": 971,
+        "infrastructure": 5582,
+        "total": 6553
+      },
+      {
+        "day": "2026-01-12",
+        "consumer": 1071,
+        "infrastructure": 3811,
+        "total": 4882
+      },
+      {
+        "day": "2026-01-13",
+        "consumer": 1080,
+        "infrastructure": 5525,
+        "total": 6605
+      },
+      {
+        "day": "2026-01-14",
+        "consumer": 1133,
+        "infrastructure": 6142,
+        "total": 7275
+      },
+      {
+        "day": "2026-01-15",
+        "consumer": 1154,
+        "infrastructure": 3499,
+        "total": 4653
+      },
+      {
+        "day": "2026-01-16",
+        "consumer": 762,
+        "infrastructure": 5021,
+        "total": 5783
+      },
+      {
+        "day": "2026-01-17",
+        "consumer": 935,
+        "infrastructure": 2775,
+        "total": 3710
+      },
+      {
+        "day": "2026-01-18",
+        "consumer": 693,
+        "infrastructure": 2701,
+        "total": 3394
+      },
+      {
+        "day": "2026-01-19",
+        "consumer": 961,
+        "infrastructure": 3809,
+        "total": 4770
+      },
+      {
+        "day": "2026-01-20",
+        "consumer": 1462,
+        "infrastructure": 4128,
+        "total": 5590
+      },
+      {
+        "day": "2026-01-21",
+        "consumer": 1495,
+        "infrastructure": 4500,
+        "total": 5995
+      },
+      {
+        "day": "2026-01-22",
+        "consumer": 1250,
+        "infrastructure": 3285,
+        "total": 4535
+      },
+      {
+        "day": "2026-01-23",
+        "consumer": 1316,
+        "infrastructure": 3081,
+        "total": 4397
+      },
+      {
+        "day": "2026-01-24",
+        "consumer": 965,
+        "infrastructure": 2800,
+        "total": 3765
+      },
+      {
+        "day": "2026-01-25",
+        "consumer": 1173,
+        "infrastructure": 3433,
+        "total": 4606
+      },
+      {
+        "day": "2026-01-26",
+        "consumer": 1935,
+        "infrastructure": 3507,
+        "total": 5442
+      },
+      {
+        "day": "2026-01-27",
+        "consumer": 6942,
+        "infrastructure": 4146,
+        "total": 11088
+      },
+      {
+        "day": "2026-01-28",
+        "consumer": 7669,
+        "infrastructure": 7292,
+        "total": 14961
+      },
+      {
+        "day": "2026-01-29",
+        "consumer": 6035,
+        "infrastructure": 5183,
+        "total": 11218
+      },
+      {
+        "day": "2026-01-30",
+        "consumer": 6961,
+        "infrastructure": 6389,
+        "total": 13350
+      },
+      {
+        "day": "2026-01-31",
+        "consumer": 8332,
+        "infrastructure": 8107,
+        "total": 16439
+      },
+      {
+        "day": "2026-02-01",
+        "consumer": 5582,
+        "infrastructure": 7102,
+        "total": 12684
+      },
+      {
+        "day": "2026-02-02",
+        "consumer": 5238,
+        "infrastructure": 4915,
+        "total": 10153
+      },
+      {
+        "day": "2026-02-03",
+        "consumer": 5500,
+        "infrastructure": 4578,
+        "total": 10078
+      },
+      {
+        "day": "2026-02-04",
+        "consumer": 4792,
+        "infrastructure": 4387,
+        "total": 9179
+      },
+      {
+        "day": "2026-02-05",
+        "consumer": 4210,
+        "infrastructure": 5155,
+        "total": 9365
+      },
+      {
+        "day": "2026-02-06",
+        "consumer": 4079,
+        "infrastructure": 5383,
+        "total": 9462
+      },
+      {
+        "day": "2026-02-07",
+        "consumer": 2841,
+        "infrastructure": 3229,
+        "total": 6070
+      },
+      {
+        "day": "2026-02-08",
+        "consumer": 4565,
+        "infrastructure": 3392,
+        "total": 7957
+      },
+      {
+        "day": "2026-02-09",
+        "consumer": 3259,
+        "infrastructure": 3212,
+        "total": 6471
+      },
+      {
+        "day": "2026-02-10",
+        "consumer": 4185,
+        "infrastructure": 4580,
+        "total": 8765
+      },
+      {
+        "day": "2026-02-11",
+        "consumer": 3190,
+        "infrastructure": 5958,
+        "total": 9148
+      },
+      {
+        "day": "2026-02-12",
+        "consumer": 3640,
+        "infrastructure": 6381,
+        "total": 10021
+      },
+      {
+        "day": "2026-02-13",
+        "consumer": 3461,
+        "infrastructure": 7090,
+        "total": 10551
+      },
+      {
+        "day": "2026-02-14",
+        "consumer": 3542,
+        "infrastructure": 11813,
+        "total": 15355
+      },
+      {
+        "day": "2026-02-15",
+        "consumer": 2920,
+        "infrastructure": 11046,
+        "total": 13966
+      },
+      {
+        "day": "2026-02-16",
+        "consumer": 2422,
+        "infrastructure": 9378,
+        "total": 11800
+      },
+      {
+        "day": "2026-02-17",
+        "consumer": 2026,
+        "infrastructure": 6414,
+        "total": 8440
+      },
+      {
+        "day": "2026-02-18",
+        "consumer": 2386,
+        "infrastructure": 6859,
+        "total": 9245
+      },
+      {
+        "day": "2026-02-19",
+        "consumer": 4135,
+        "infrastructure": 5585,
+        "total": 9720
+      },
+      {
+        "day": "2026-02-20",
+        "consumer": 2948,
+        "infrastructure": 7361,
+        "total": 10309
+      },
+      {
+        "day": "2026-02-21",
+        "consumer": 2275,
+        "infrastructure": 4237,
+        "total": 6512
+      },
+      {
+        "day": "2026-02-22",
+        "consumer": 1818,
+        "infrastructure": 5567,
+        "total": 7385
+      },
+      {
+        "day": "2026-02-23",
+        "consumer": 2380,
+        "infrastructure": 5191,
+        "total": 7571
+      },
+      {
+        "day": "2026-02-24",
+        "consumer": 1892,
+        "infrastructure": 5217,
+        "total": 7109
+      },
+      {
+        "day": "2026-02-25",
+        "consumer": 2595,
+        "infrastructure": 9576,
+        "total": 12171
+      },
+      {
+        "day": "2026-02-26",
+        "consumer": 2286,
+        "infrastructure": 6852,
+        "total": 9138
+      },
+      {
+        "day": "2026-02-27",
+        "consumer": 2654,
+        "infrastructure": 8903,
+        "total": 11557
+      },
+      {
+        "day": "2026-02-28",
+        "consumer": 2044,
+        "infrastructure": 7005,
+        "total": 9049
+      },
+      {
+        "day": "2026-03-01",
+        "consumer": 1375,
+        "infrastructure": 5387,
+        "total": 6762
+      },
+      {
+        "day": "2026-03-02",
+        "consumer": 3176,
+        "infrastructure": 7758,
+        "total": 10934
+      },
+      {
+        "day": "2026-03-03",
+        "consumer": 2495,
+        "infrastructure": 6465,
+        "total": 8960
+      },
+      {
+        "day": "2026-03-04",
+        "consumer": 2553,
+        "infrastructure": 6682,
+        "total": 9235
+      },
+      {
+        "day": "2026-03-05",
+        "consumer": 2821,
+        "infrastructure": 6524,
+        "total": 9345
+      },
+      {
+        "day": "2026-03-06",
+        "consumer": 2967,
+        "infrastructure": 4771,
+        "total": 7738
+      },
+      {
+        "day": "2026-03-07",
+        "consumer": 3241,
+        "infrastructure": 4240,
+        "total": 7481
+      },
+      {
+        "day": "2026-03-08",
+        "consumer": 2200,
+        "infrastructure": 4389,
+        "total": 6589
+      },
+      {
+        "day": "2026-03-09",
+        "consumer": 2367,
+        "infrastructure": 6765,
+        "total": 9132
+      },
+      {
+        "day": "2026-03-10",
+        "consumer": 2038,
+        "infrastructure": 5155,
+        "total": 7193
+      },
+      {
+        "day": "2026-03-11",
+        "consumer": 2176,
+        "infrastructure": 5065,
+        "total": 7241
+      },
+      {
+        "day": "2026-03-12",
+        "consumer": 1814,
+        "infrastructure": 5142,
+        "total": 6956
+      },
+      {
+        "day": "2026-03-13",
+        "consumer": 2698,
+        "infrastructure": 6525,
+        "total": 9223
+      },
+      {
+        "day": "2026-03-14",
+        "consumer": 1341,
+        "infrastructure": 4248,
+        "total": 5589
+      },
+      {
+        "day": "2026-03-15",
+        "consumer": 1892,
+        "infrastructure": 4215,
+        "total": 6107
+      },
+      {
+        "day": "2026-03-16",
+        "consumer": 2290,
+        "infrastructure": 5997,
+        "total": 8287
+      },
+      {
+        "day": "2026-03-17",
+        "consumer": 2193,
+        "infrastructure": 5110,
+        "total": 7303
+      },
+      {
+        "day": "2026-03-18",
+        "consumer": 1841,
+        "infrastructure": 5373,
+        "total": 7214
+      },
+      {
+        "day": "2026-03-19",
+        "consumer": 1787,
+        "infrastructure": 8106,
+        "total": 9893
+      },
+      {
+        "day": "2026-03-20",
+        "consumer": 1403,
+        "infrastructure": 7111,
+        "total": 8514
+      },
+      {
+        "day": "2026-03-21",
+        "consumer": 1343,
+        "infrastructure": 5936,
+        "total": 7279
+      },
+      {
+        "day": "2026-03-22",
+        "consumer": 1622,
+        "infrastructure": 5965,
+        "total": 7587
+      },
+      {
+        "day": "2026-03-23",
+        "consumer": 1729,
+        "infrastructure": 8889,
+        "total": 10618
+      },
+      {
+        "day": "2026-03-24",
+        "consumer": 1935,
+        "infrastructure": 8184,
+        "total": 10119
+      },
+      {
+        "day": "2026-03-25",
+        "consumer": 1444,
+        "infrastructure": 6456,
+        "total": 7900
+      },
+      {
+        "day": "2026-03-26",
+        "consumer": 1750,
+        "infrastructure": 5141,
+        "total": 6891
+      },
+      {
+        "day": "2026-03-27",
+        "consumer": 1980,
+        "infrastructure": 5408,
+        "total": 7388
+      },
+      {
+        "day": "2026-03-28",
+        "consumer": 1751,
+        "infrastructure": 4463,
+        "total": 6214
+      },
+      {
+        "day": "2026-03-29",
+        "consumer": 1071,
+        "infrastructure": 3569,
+        "total": 4640
+      },
+      {
+        "day": "2026-03-30",
+        "consumer": 1121,
+        "infrastructure": 4401,
+        "total": 5522
+      },
+      {
+        "day": "2026-03-31",
+        "consumer": 1188,
+        "infrastructure": 3213,
+        "total": 4401
+      },
+      {
+        "day": "2026-04-01",
+        "consumer": 942,
+        "infrastructure": 4448,
+        "total": 5390
+      },
+      {
+        "day": "2026-04-02",
+        "consumer": 1567,
+        "infrastructure": 4005,
+        "total": 5572
+      },
+      {
+        "day": "2026-04-03",
+        "consumer": 1076,
+        "infrastructure": 4175,
+        "total": 5251
+      },
+      {
+        "day": "2026-04-04",
+        "consumer": 887,
+        "infrastructure": 4186,
+        "total": 5073
+      },
+      {
+        "day": "2026-04-05",
+        "consumer": 1111,
+        "infrastructure": 4742,
+        "total": 5853
+      },
+      {
+        "day": "2026-04-06",
+        "consumer": 1292,
+        "infrastructure": 4824,
+        "total": 6116
+      },
+      {
+        "day": "2026-04-07",
+        "consumer": 1169,
+        "infrastructure": 4804,
+        "total": 5973
+      },
+      {
+        "day": "2026-04-08",
+        "consumer": 1140,
+        "infrastructure": 5678,
+        "total": 6818
+      },
+      {
+        "day": "2026-04-09",
+        "consumer": 1154,
+        "infrastructure": 5373,
+        "total": 6527
+      },
+      {
+        "day": "2026-04-10",
+        "consumer": 1292,
+        "infrastructure": 5056,
+        "total": 6348
+      },
+      {
+        "day": "2026-04-11",
+        "consumer": 985,
+        "infrastructure": 4662,
+        "total": 5647
+      },
+      {
+        "day": "2026-04-12",
+        "consumer": 1283,
+        "infrastructure": 3537,
+        "total": 4820
+      },
+      {
+        "day": "2026-04-13",
+        "consumer": 1176,
+        "infrastructure": 4394,
+        "total": 5570
+      },
+      {
+        "day": "2026-04-14",
+        "consumer": 1101,
+        "infrastructure": 4662,
+        "total": 5763
+      },
+      {
+        "day": "2026-04-15",
+        "consumer": 871,
+        "infrastructure": 2928,
+        "total": 3799
+      },
+      {
+        "day": "2026-04-16",
+        "consumer": 971,
+        "infrastructure": 5216,
+        "total": 6187
+      },
+      {
+        "day": "2026-04-17",
+        "consumer": 1163,
+        "infrastructure": 4052,
+        "total": 5215
+      },
+      {
+        "day": "2026-04-18",
+        "consumer": 1036,
+        "infrastructure": 3395,
+        "total": 4431
+      },
+      {
+        "day": "2026-04-19",
+        "consumer": 1141,
+        "infrastructure": 3180,
+        "total": 4321
+      },
+      {
+        "day": "2026-04-20",
+        "consumer": 1009,
+        "infrastructure": 3332,
+        "total": 4341
+      },
+      {
+        "day": "2026-04-21",
+        "consumer": 1011,
+        "infrastructure": 2930,
+        "total": 3941
+      },
+      {
+        "day": "2026-04-22",
+        "consumer": 701,
+        "infrastructure": 3224,
+        "total": 3925
+      },
+      {
+        "day": "2026-04-23",
+        "consumer": 793,
+        "infrastructure": 3089,
+        "total": 3882
+      },
+      {
+        "day": "2026-04-24",
+        "consumer": 705,
+        "infrastructure": 2861,
+        "total": 3566
+      },
+      {
+        "day": "2026-04-25",
+        "consumer": 858,
+        "infrastructure": 2908,
+        "total": 3766
+      },
+      {
+        "day": "2026-04-26",
+        "consumer": 922,
+        "infrastructure": 3305,
+        "total": 4227
+      },
+      {
+        "day": "2026-04-27",
+        "consumer": 1246,
+        "infrastructure": 3223,
+        "total": 4469
+      },
+      {
+        "day": "2026-04-28",
+        "consumer": 820,
+        "infrastructure": 2936,
+        "total": 3756
+      },
+      {
+        "day": "2026-04-29",
+        "consumer": 792,
+        "infrastructure": 4827,
+        "total": 5619
+      },
+      {
+        "day": "2026-04-30",
+        "consumer": 868,
+        "infrastructure": 3463,
+        "total": 4331
+      },
+      {
+        "day": "2026-05-01",
+        "consumer": 894,
+        "infrastructure": 4174,
+        "total": 5068
+      },
+      {
+        "day": "2026-05-02",
+        "consumer": 1142,
+        "infrastructure": 4769,
+        "total": 5911
+      },
+      {
+        "day": "2026-05-03",
+        "consumer": 901,
+        "infrastructure": 5519,
+        "total": 6420
+      },
+      {
+        "day": "2026-05-04",
+        "consumer": 1042,
+        "infrastructure": 5849,
+        "total": 6891
+      },
+      {
+        "day": "2026-05-05",
+        "consumer": 1102,
+        "infrastructure": 6984,
+        "total": 8086
+      },
+      {
+        "day": "2026-05-06",
+        "consumer": 1975,
+        "infrastructure": 11016,
+        "total": 12991
+      },
+      {
+        "day": "2026-05-07",
+        "consumer": 1613,
+        "infrastructure": 10091,
+        "total": 11704
+      },
+      {
+        "day": "2026-05-08",
+        "consumer": 1259,
+        "infrastructure": 6234,
+        "total": 7493
+      },
+      {
+        "day": "2026-05-09",
+        "consumer": 1423,
+        "infrastructure": 7303,
+        "total": 8726
+      },
+      {
+        "day": "2026-05-10",
+        "consumer": 1391,
+        "infrastructure": 5485,
+        "total": 6876
+      },
+      {
+        "day": "2026-05-11",
+        "consumer": 1550,
+        "infrastructure": 6214,
+        "total": 7764
+      },
+      {
+        "day": "2026-05-12",
+        "consumer": 1977,
+        "infrastructure": 8647,
+        "total": 10624
+      },
+      {
+        "day": "2026-05-13",
+        "consumer": 3233,
+        "infrastructure": 6678,
+        "total": 9911
+      },
+      {
+        "day": "2026-05-14",
+        "consumer": 1651,
+        "infrastructure": 6138,
+        "total": 7789
+      },
+      {
+        "day": "2026-05-15",
+        "consumer": 2236,
+        "infrastructure": 6177,
+        "total": 8413
+      },
+      {
+        "day": "2026-05-16",
+        "consumer": 2148,
+        "infrastructure": 5565,
+        "total": 7713
+      },
+      {
+        "day": "2026-05-17",
+        "consumer": 2211,
+        "infrastructure": 5020,
+        "total": 7231
+      },
+      {
+        "day": "2026-05-18",
+        "consumer": 1464,
+        "infrastructure": 5156,
+        "total": 6620
+      },
+      {
+        "day": "2026-05-19",
+        "consumer": 2060,
+        "infrastructure": 5070,
+        "total": 7130
+      },
+      {
+        "day": "2026-05-20",
+        "consumer": 1700,
+        "infrastructure": 5482,
+        "total": 7182
+      },
+      {
+        "day": "2026-05-21",
+        "consumer": 1476,
+        "infrastructure": 5840,
+        "total": 7316
+      },
+      {
+        "day": "2026-05-22",
+        "consumer": 1357,
+        "infrastructure": 7153,
+        "total": 8510
+      },
+      {
+        "day": "2026-05-23",
+        "consumer": 1084,
+        "infrastructure": 6483,
+        "total": 7567
+      },
+      {
+        "day": "2026-05-24",
+        "consumer": 1271,
+        "infrastructure": 6144,
+        "total": 7415
+      },
+      {
+        "day": "2026-05-25",
+        "consumer": 1344,
+        "infrastructure": 5653,
+        "total": 6997
+      },
+      {
+        "day": "2026-05-26",
+        "consumer": 1389,
+        "infrastructure": 7802,
+        "total": 9191
+      },
+      {
+        "day": "2026-05-27",
+        "consumer": 1156,
+        "infrastructure": 6618,
+        "total": 7774
+      },
+      {
+        "day": "2026-05-28",
+        "consumer": 1368,
+        "infrastructure": 6231,
+        "total": 7599
+      },
+      {
+        "day": "2026-05-29",
+        "consumer": 1099,
+        "infrastructure": 4731,
+        "total": 5830
+      },
+      {
+        "day": "2026-05-30",
+        "consumer": 1968,
+        "infrastructure": 4126,
+        "total": 6094
+      },
+      {
+        "day": "2026-05-31",
+        "consumer": 1304,
+        "infrastructure": 5042,
+        "total": 6346
+      },
+      {
+        "day": "2026-06-01",
+        "consumer": 1074,
+        "infrastructure": 5664,
+        "total": 6738
+      },
+      {
+        "day": "2026-06-02",
+        "consumer": 1404,
+        "infrastructure": 5751,
+        "total": 7155
+      },
+      {
+        "day": "2026-06-03",
+        "consumer": 1075,
+        "infrastructure": 6489,
+        "total": 7564
+      },
+      {
+        "day": "2026-06-04",
+        "consumer": 1270,
+        "infrastructure": 6717,
+        "total": 7987
+      },
+      {
+        "day": "2026-06-05",
+        "consumer": 1349,
+        "infrastructure": 6873,
+        "total": 8222
+      },
+      {
+        "day": "2026-06-06",
+        "consumer": 902,
+        "infrastructure": 4368,
+        "total": 5270
+      },
+      {
+        "day": "2026-06-07",
+        "consumer": 907,
+        "infrastructure": 4480,
+        "total": 5387
+      },
+      {
+        "day": "2026-06-08",
+        "consumer": 734,
+        "infrastructure": 4550,
+        "total": 5284
+      },
+      {
+        "day": "2026-06-09",
+        "consumer": 1437,
+        "infrastructure": 6261,
+        "total": 7698
+      },
+      {
+        "day": "2026-06-10",
+        "consumer": 1431,
+        "infrastructure": 4308,
+        "total": 5739
+      },
+      {
+        "day": "2026-06-11",
+        "consumer": 1171,
+        "infrastructure": 4574,
+        "total": 5745
+      },
+      {
+        "day": "2026-06-12",
+        "consumer": 873,
+        "infrastructure": 3788,
+        "total": 4661
+      },
+      {
+        "day": "2026-06-13",
+        "consumer": 655,
+        "infrastructure": 5120,
+        "total": 5775
+      },
+      {
+        "day": "2026-06-14",
+        "consumer": 483,
+        "infrastructure": 3854,
+        "total": 4337
+      },
+      {
+        "day": "2026-06-15",
+        "consumer": 885,
+        "infrastructure": 5427,
+        "total": 6312
+      },
+      {
+        "day": "2026-06-16",
+        "consumer": 1132,
+        "infrastructure": 5966,
+        "total": 7098
+      },
+      {
+        "day": "2026-06-17",
+        "consumer": 785,
+        "infrastructure": 5586,
+        "total": 6371
+      },
+      {
+        "day": "2026-06-18",
+        "consumer": 670,
+        "infrastructure": 4778,
+        "total": 5448
+      },
+      {
+        "day": "2026-06-19",
+        "consumer": 628,
+        "infrastructure": 4879,
+        "total": 5507
+      },
+      {
+        "day": "2026-06-20",
+        "consumer": 672,
+        "infrastructure": 4934,
+        "total": 5606
+      },
+      {
+        "day": "2026-06-21",
+        "consumer": 739,
+        "infrastructure": 6073,
+        "total": 6812
+      },
+      {
+        "day": "2026-06-22",
+        "consumer": 878,
+        "infrastructure": 5551,
+        "total": 6429
+      },
+      {
+        "day": "2026-06-23",
+        "consumer": 1116,
+        "infrastructure": 6742,
+        "total": 7858
+      },
+      {
+        "day": "2026-06-24",
+        "consumer": 1546,
+        "infrastructure": 7021,
+        "total": 8567
+      },
+      {
+        "day": "2026-06-25",
+        "consumer": 863,
+        "infrastructure": 6623,
+        "total": 7486
+      },
+      {
+        "day": "2026-06-26",
+        "consumer": 994,
+        "infrastructure": 6087,
+        "total": 7081
+      },
+      {
+        "day": "2026-06-27",
+        "consumer": 642,
+        "infrastructure": 6666,
+        "total": 7308
+      },
+      {
+        "day": "2026-06-28",
+        "consumer": 637,
+        "infrastructure": 5978,
+        "total": 6615
+      },
+      {
+        "day": "2026-06-29",
+        "consumer": 881,
+        "infrastructure": 5426,
+        "total": 6307
+      },
+      {
+        "day": "2026-06-30",
+        "consumer": 645,
+        "infrastructure": 5684,
+        "total": 6329
+      },
+      {
+        "day": "2026-07-01",
+        "consumer": 618,
+        "infrastructure": 7383,
+        "total": 8001
+      },
+      {
+        "day": "2026-07-02",
+        "consumer": 700,
+        "infrastructure": 7906,
+        "total": 8606
+      },
+      {
+        "day": "2026-07-03",
+        "consumer": 545,
+        "infrastructure": 8041,
+        "total": 8586
+      },
+      {
+        "day": "2026-07-04",
+        "consumer": 610,
+        "infrastructure": 8581,
+        "total": 9191
+      },
+      {
+        "day": "2026-07-05",
+        "consumer": 465,
+        "infrastructure": 6940,
+        "total": 7405
+      },
+      {
+        "day": "2026-07-06",
+        "consumer": 669,
+        "infrastructure": 5912,
+        "total": 6581
+      },
+      {
+        "day": "2026-07-07",
+        "consumer": 917,
+        "infrastructure": 6928,
+        "total": 7845
+      },
+      {
+        "day": "2026-07-08",
+        "consumer": 867,
+        "infrastructure": 5591,
+        "total": 6458
+      },
+      {
+        "day": "2026-07-09",
+        "consumer": 646,
+        "infrastructure": 4852,
+        "total": 5498
+      },
+      {
+        "day": "2026-07-10",
+        "consumer": 1016,
+        "infrastructure": 6050,
+        "total": 7066
+      },
+      {
+        "day": "2026-07-11",
+        "consumer": 875,
+        "infrastructure": 5550,
+        "total": 6425
+      },
+      {
+        "day": "2026-07-12",
+        "consumer": 748,
+        "infrastructure": 5141,
+        "total": 5889
+      },
+      {
+        "day": "2026-07-13",
+        "consumer": 863,
+        "infrastructure": 3817,
+        "total": 4680
+      },
+      {
+        "day": "2026-07-14",
+        "consumer": 981,
+        "infrastructure": 3812,
+        "total": 4793
+      },
+      {
+        "day": "2026-07-15",
+        "consumer": 624,
+        "infrastructure": 3144,
+        "total": 3768
+      },
+      {
+        "day": "2026-07-16",
+        "consumer": 657,
+        "infrastructure": 3322,
+        "total": 3979
+      },
+      {
+        "day": "2026-07-17",
+        "consumer": 1328,
+        "infrastructure": 4977,
+        "total": 6305
+      },
+      {
+        "day": "2026-07-18",
+        "consumer": 631,
+        "infrastructure": 2490,
+        "total": 3121
+      },
+      {
+        "day": "2026-07-19",
+        "consumer": 773,
+        "infrastructure": 2607,
+        "total": 3380
+      },
+      {
+        "day": "2026-07-20",
+        "consumer": 550,
+        "infrastructure": 2262,
+        "total": 2812
+      },
+      {
+        "day": "2026-07-21",
+        "consumer": 684,
+        "infrastructure": 3086,
+        "total": 3770
+      },
+      {
+        "day": "2026-07-22",
+        "consumer": 602,
+        "infrastructure": 2546,
+        "total": 3148
+      },
+      {
+        "day": "2026-07-23",
+        "consumer": 1196,
+        "infrastructure": 2794,
+        "total": 3990
+      },
+      {
+        "day": "2026-07-24",
+        "consumer": 809,
+        "infrastructure": 2634,
+        "total": 3443
+      },
+      {
+        "day": "2026-07-25",
+        "consumer": 890,
+        "infrastructure": 2426,
+        "total": 3316
+      },
+      {
+        "day": "2026-07-26",
+        "consumer": 727,
+        "infrastructure": 2578,
+        "total": 3305
+      },
+      {
+        "day": "2026-07-27",
+        "consumer": 1291,
+        "infrastructure": 6199,
+        "total": 7490
+      },
+      {
+        "day": "2026-07-28",
+        "consumer": 752,
+        "infrastructure": 2229,
+        "total": 2981
+      },
+      {
+        "day": "2026-07-29",
+        "consumer": 715,
+        "infrastructure": 2219,
+        "total": 2934
+      },
+      {
+        "day": "2026-07-30",
+        "consumer": 574,
+        "infrastructure": 2550,
+        "total": 3124
+      },
+      {
+        "day": "2026-07-31",
+        "consumer": 562,
+        "infrastructure": 2216,
+        "total": 2778
+      },
+      {
+        "day": "2026-08-01",
+        "consumer": 446,
+        "infrastructure": 1801,
+        "total": 2247
+      },
+      {
+        "day": "2026-08-02",
+        "consumer": 432,
+        "infrastructure": 1799,
+        "total": 2231
+      },
+      {
+        "day": "2026-08-03",
+        "consumer": 467,
+        "infrastructure": 1797,
+        "total": 2264
+      },
+      {
+        "day": "2026-08-04",
+        "consumer": 759,
+        "infrastructure": 1829,
+        "total": 2588
+      },
+      {
+        "day": "2026-08-05",
+        "consumer": 640,
+        "infrastructure": 1938,
+        "total": 2578
+      },
+      {
+        "day": "2026-08-06",
+        "consumer": 624,
+        "infrastructure": 1944,
+        "total": 2568
+      },
+      {
+        "day": "2026-08-07",
+        "consumer": 748,
+        "infrastructure": 2663,
+        "total": 3411
+      },
+      {
+        "day": "2026-08-08",
+        "consumer": 332,
+        "infrastructure": 3248,
+        "total": 3580
+      },
+      {
+        "day": "2026-08-09",
+        "consumer": 459,
+        "infrastructure": 3403,
+        "total": 3862
+      },
+      {
+        "day": "2026-08-10",
+        "consumer": 901,
+        "infrastructure": 3012,
+        "total": 3913
+      },
+      {
+        "day": "2026-08-11",
+        "consumer": 762,
+        "infrastructure": 4513,
+        "total": 5275
+      },
+      {
+        "day": "2026-08-12",
+        "consumer": 663,
+        "infrastructure": 5216,
+        "total": 5879
+      },
+      {
+        "day": "2026-08-13",
+        "consumer": 1845,
+        "infrastructure": 4679,
+        "total": 6524
+      },
+      {
+        "day": "2026-08-14",
+        "consumer": 1338,
+        "infrastructure": 4286,
+        "total": 5624
+      },
+      {
+        "day": "2026-08-15",
+        "consumer": 867,
+        "infrastructure": 3131,
+        "total": 3998
+      },
+      {
+        "day": "2026-08-16",
+        "consumer": 822,
+        "infrastructure": 2816,
+        "total": 3638
+      },
+      {
+        "day": "2026-08-17",
+        "consumer": 904,
+        "infrastructure": 5290,
+        "total": 6194
+      },
+      {
+        "day": "2026-08-18",
+        "consumer": 900,
+        "infrastructure": 37460,
+        "total": 38360
+      },
+      {
+        "day": "2026-08-19",
+        "consumer": 1333,
+        "infrastructure": 80544,
+        "total": 81877
+      },
+      {
+        "day": "2026-08-20",
+        "consumer": 1551,
+        "infrastructure": 86226,
+        "total": 87777
+      },
+      {
+        "day": "2026-08-21",
+        "consumer": 1771,
+        "infrastructure": 101909,
+        "total": 103680
+      },
+      {
+        "day": "2026-08-22",
+        "consumer": 1135,
+        "infrastructure": 59521,
+        "total": 60656
+      },
+      {
+        "day": "2026-08-23",
+        "consumer": 690,
+        "infrastructure": 142202,
+        "total": 142892
+      },
+      {
+        "day": "2026-08-24",
+        "consumer": 1177,
+        "infrastructure": 122494,
+        "total": 123671
+      },
+      {
+        "day": "2026-08-25",
+        "consumer": 910,
+        "infrastructure": 171798,
+        "total": 172708
+      },
+      {
+        "day": "2026-08-26",
+        "consumer": 1608,
+        "infrastructure": 72520,
+        "total": 74128
+      },
+      {
+        "day": "2026-08-27",
+        "consumer": 7197,
+        "infrastructure": 15695,
+        "total": 22892
+      },
+      {
+        "day": "2026-08-28",
+        "consumer": 7134,
+        "infrastructure": 5382,
+        "total": 12516
+      },
+      {
+        "day": "2026-08-29",
+        "consumer": 4152,
+        "infrastructure": 4348,
+        "total": 8500
+      },
+      {
+        "day": "2026-08-30",
+        "consumer": 675,
+        "infrastructure": 4834,
+        "total": 5509
+      },
+      {
+        "day": "2026-08-31",
+        "consumer": 806,
+        "infrastructure": 3139,
+        "total": 3945
+      },
+      {
+        "day": "2026-09-01",
+        "consumer": 793,
+        "infrastructure": 2184,
+        "total": 2977
+      },
+      {
+        "day": "2026-09-02",
+        "consumer": 651,
+        "infrastructure": 2441,
+        "total": 3092
+      },
+      {
+        "day": "2026-09-03",
+        "consumer": 1387,
+        "infrastructure": 18154,
+        "total": 19541
+      },
+      {
+        "day": "2026-09-04",
+        "consumer": 992,
+        "infrastructure": 46744,
+        "total": 47736
+      },
+      {
+        "day": "2026-09-05",
+        "consumer": 1217,
+        "infrastructure": 114877,
+        "total": 116094
+      },
+      {
+        "day": "2026-09-06",
+        "consumer": 1317,
+        "infrastructure": 13092,
+        "total": 14409
+      },
+      {
+        "day": "2026-09-07",
+        "consumer": 998,
+        "infrastructure": 2913,
+        "total": 3911
+      },
+      {
+        "day": "2026-09-08",
+        "consumer": 1263,
+        "infrastructure": 5752,
+        "total": 7015
+      },
+      {
+        "day": "2026-09-09",
+        "consumer": 846,
+        "infrastructure": 6579,
+        "total": 7425
+      },
+      {
+        "day": "2026-09-10",
+        "consumer": 853,
+        "infrastructure": 4882,
+        "total": 5735
+      },
+      {
+        "day": "2026-09-11",
+        "consumer": 824,
+        "infrastructure": 5150,
+        "total": 5974
+      }
+    ]
+  },
+  "virtualsAcp": {
+    "asOf": "2026-09-12T02:04:29.865949Z",
+    "totalMemos": 12345082,
+    "daily": [
+      {
+        "day": "2026-06-15",
+        "memos": 320,
+        "senders": 12
+      },
+      {
+        "day": "2026-06-16",
+        "memos": 221,
+        "senders": 9
+      },
+      {
+        "day": "2026-06-17",
+        "memos": 237,
+        "senders": 15
+      },
+      {
+        "day": "2026-06-18",
+        "memos": 450,
+        "senders": 8
+      },
+      {
+        "day": "2026-06-19",
+        "memos": 285,
+        "senders": 8
+      },
+      {
+        "day": "2026-06-20",
+        "memos": 382,
+        "senders": 7
+      },
+      {
+        "day": "2026-06-21",
+        "memos": 322,
+        "senders": 7
+      },
+      {
+        "day": "2026-06-22",
+        "memos": 333,
+        "senders": 12
+      },
+      {
+        "day": "2026-06-23",
+        "memos": 224,
+        "senders": 6
+      },
+      {
+        "day": "2026-06-24",
+        "memos": 278,
+        "senders": 9
+      },
+      {
+        "day": "2026-06-25",
+        "memos": 282,
+        "senders": 14
+      },
+      {
+        "day": "2026-06-26",
+        "memos": 335,
+        "senders": 12
+      },
+      {
+        "day": "2026-06-27",
+        "memos": 284,
+        "senders": 7
+      },
+      {
+        "day": "2026-06-28",
+        "memos": 234,
+        "senders": 7
+      },
+      {
+        "day": "2026-06-29",
+        "memos": 261,
+        "senders": 8
+      },
+      {
+        "day": "2026-06-30",
+        "memos": 247,
+        "senders": 6
+      },
+      {
+        "day": "2026-07-01",
+        "memos": 270,
+        "senders": 8
+      },
+      {
+        "day": "2026-07-02",
+        "memos": 427,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-03",
+        "memos": 223,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-04",
+        "memos": 66,
+        "senders": 5
+      },
+      {
+        "day": "2026-07-05",
+        "memos": 227,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-06",
+        "memos": 234,
+        "senders": 13
+      },
+      {
+        "day": "2026-07-07",
+        "memos": 291,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-08",
+        "memos": 243,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-09",
+        "memos": 318,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-10",
+        "memos": 208,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-11",
+        "memos": 204,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-12",
+        "memos": 219,
+        "senders": 6
+      },
+      {
+        "day": "2026-07-13",
+        "memos": 228,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-14",
+        "memos": 231,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-15",
+        "memos": 223,
+        "senders": 8
+      },
+      {
+        "day": "2026-07-16",
+        "memos": 310,
+        "senders": 8
+      },
+      {
+        "day": "2026-07-17",
+        "memos": 220,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-18",
+        "memos": 368,
+        "senders": 12
+      },
+      {
+        "day": "2026-07-19",
+        "memos": 223,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-20",
+        "memos": 210,
+        "senders": 8
+      },
+      {
+        "day": "2026-07-21",
+        "memos": 224,
+        "senders": 8
+      },
+      {
+        "day": "2026-07-22",
+        "memos": 215,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-23",
+        "memos": 264,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-24",
+        "memos": 186,
+        "senders": 10
+      },
+      {
+        "day": "2026-07-25",
+        "memos": 211,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-26",
+        "memos": 201,
+        "senders": 10
+      },
+      {
+        "day": "2026-07-27",
+        "memos": 203,
+        "senders": 10
+      },
+      {
+        "day": "2026-07-28",
+        "memos": 201,
+        "senders": 14
+      },
+      {
+        "day": "2026-07-29",
+        "memos": 196,
+        "senders": 9
+      },
+      {
+        "day": "2026-07-30",
+        "memos": 231,
+        "senders": 7
+      },
+      {
+        "day": "2026-07-31",
+        "memos": 194,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-01",
+        "memos": 201,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-02",
+        "memos": 196,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-03",
+        "memos": 227,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-04",
+        "memos": 178,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-05",
+        "memos": 173,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-06",
+        "memos": 218,
+        "senders": 5
+      },
+      {
+        "day": "2026-08-07",
+        "memos": 180,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-08",
+        "memos": 174,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-09",
+        "memos": 173,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-10",
+        "memos": 178,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-11",
+        "memos": 173,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-12",
+        "memos": 180,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-13",
+        "memos": 216,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-14",
+        "memos": 173,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-15",
+        "memos": 175,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-16",
+        "memos": 1627,
+        "senders": 11
+      },
+      {
+        "day": "2026-08-17",
+        "memos": 772,
+        "senders": 9
+      },
+      {
+        "day": "2026-08-18",
+        "memos": 181,
+        "senders": 12
+      },
+      {
+        "day": "2026-08-19",
+        "memos": 3734,
+        "senders": 21
+      },
+      {
+        "day": "2026-08-20",
+        "memos": 315,
+        "senders": 15
+      },
+      {
+        "day": "2026-08-21",
+        "memos": 175,
+        "senders": 14
+      },
+      {
+        "day": "2026-08-22",
+        "memos": 183,
+        "senders": 14
+      },
+      {
+        "day": "2026-08-23",
+        "memos": 174,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-24",
+        "memos": 179,
+        "senders": 11
+      },
+      {
+        "day": "2026-08-25",
+        "memos": 196,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-26",
+        "memos": 165,
+        "senders": 9
+      },
+      {
+        "day": "2026-08-27",
+        "memos": 215,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-28",
+        "memos": 171,
+        "senders": 7
+      },
+      {
+        "day": "2026-08-29",
+        "memos": 181,
+        "senders": 5
+      },
+      {
+        "day": "2026-08-30",
+        "memos": 189,
+        "senders": 6
+      },
+      {
+        "day": "2026-08-31",
+        "memos": 226,
+        "senders": 8
+      },
+      {
+        "day": "2026-09-01",
+        "memos": 239,
+        "senders": 9
+      },
+      {
+        "day": "2026-09-02",
+        "memos": 222,
+        "senders": 8
+      },
+      {
+        "day": "2026-09-03",
+        "memos": 214,
+        "senders": 7
+      },
+      {
+        "day": "2026-09-04",
+        "memos": 176,
+        "senders": 7
+      },
+      {
+        "day": "2026-09-05",
+        "memos": 173,
+        "senders": 6
+      },
+      {
+        "day": "2026-09-06",
+        "memos": 168,
+        "senders": 7
+      },
+      {
+        "day": "2026-09-07",
+        "memos": 172,
+        "senders": 6
+      },
+      {
+        "day": "2026-09-08",
+        "memos": 146,
+        "senders": 7
+      },
+      {
+        "day": "2026-09-09",
+        "memos": 136,
+        "senders": 8
+      },
+      {
+        "day": "2026-09-10",
+        "memos": 164,
+        "senders": 8
+      },
+      {
+        "day": "2026-09-11",
+        "memos": 151,
+        "senders": 14
+      },
+      {
+        "day": "2026-09-12",
+        "memos": 20,
+        "senders": 6
+      }
+    ]
+  },
+  "tempoMpp": {
+    "totalEvents": 45767,
+    "uniquePayers": 1850,
+    "uniquePayees": 90,
+    "byType": {
+      "ChannelOpened": 22852,
+      "CloseRequested": 3134,
+      "ChannelExpired": 2946,
+      "ChannelClosed": 15957,
+      "Settled": 384,
+      "TopUp": 494
+    },
+    "daily": [
+      {
+        "day": "2026-06-06",
+        "events": 109,
+        "payers": 25,
+        "payees": 4
+      },
+      {
+        "day": "2026-06-07",
+        "events": 81,
+        "payers": 32,
+        "payees": 4
+      },
+      {
+        "day": "2026-06-08",
+        "events": 166,
+        "payers": 63,
+        "payees": 5
+      },
+      {
+        "day": "2026-06-09",
+        "events": 172,
+        "payers": 43,
+        "payees": 9
+      },
+      {
+        "day": "2026-06-10",
+        "events": 170,
+        "payers": 9,
+        "payees": 7
+      },
+      {
+        "day": "2026-06-11",
+        "events": 257,
+        "payers": 12,
+        "payees": 13
+      },
+      {
+        "day": "2026-06-12",
+        "events": 236,
+        "payers": 10,
+        "payees": 7
+      },
+      {
+        "day": "2026-06-13",
+        "events": 42,
+        "payers": 10,
+        "payees": 6
+      },
+      {
+        "day": "2026-06-14",
+        "events": 72,
+        "payers": 15,
+        "payees": 8
+      },
+      {
+        "day": "2026-06-15",
+        "events": 77,
+        "payers": 17,
+        "payees": 9
+      },
+      {
+        "day": "2026-06-16",
+        "events": 124,
+        "payers": 31,
+        "payees": 9
+      },
+      {
+        "day": "2026-06-17",
+        "events": 120,
+        "payers": 15,
+        "payees": 7
+      },
+      {
+        "day": "2026-06-18",
+        "events": 81,
+        "payers": 19,
+        "payees": 5
+      },
+      {
+        "day": "2026-06-19",
+        "events": 90,
+        "payers": 21,
+        "payees": 7
+      },
+      {
+        "day": "2026-06-20",
+        "events": 160,
+        "payers": 36,
+        "payees": 5
+      },
+      {
+        "day": "2026-06-21",
+        "events": 196,
+        "payers": 53,
+        "payees": 5
+      },
+      {
+        "day": "2026-06-22",
+        "events": 58,
+        "payers": 5,
+        "payees": 6
+      },
+      {
+        "day": "2026-06-23",
+        "events": 74,
+        "payers": 12,
+        "payees": 5
+      },
+      {
+        "day": "2026-06-24",
+        "events": 204,
+        "payers": 44,
+        "payees": 6
+      },
+      {
+        "day": "2026-06-25",
+        "events": 58,
+        "payers": 19,
+        "payees": 4
+      },
+      {
+        "day": "2026-06-26",
+        "events": 71,
+        "payers": 4,
+        "payees": 4
+      },
+      {
+        "day": "2026-06-27",
+        "events": 30,
+        "payers": 5,
+        "payees": 4
+      },
+      {
+        "day": "2026-06-28",
+        "events": 18,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-06-29",
+        "events": 28,
+        "payers": 4,
+        "payees": 4
+      },
+      {
+        "day": "2026-06-30",
+        "events": 94,
+        "payers": 6,
+        "payees": 5
+      },
+      {
+        "day": "2026-07-01",
+        "events": 46,
+        "payers": 6,
+        "payees": 4
+      },
+      {
+        "day": "2026-07-02",
+        "events": 81,
+        "payers": 5,
+        "payees": 4
+      },
+      {
+        "day": "2026-07-03",
+        "events": 15,
+        "payers": 4,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-04",
+        "events": 10,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-05",
+        "events": 2,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-06",
+        "events": 102,
+        "payers": 5,
+        "payees": 3
+      },
+      {
+        "day": "2026-07-07",
+        "events": 28,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-08",
+        "events": 252,
+        "payers": 46,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-09",
+        "events": 92,
+        "payers": 12,
+        "payees": 4
+      },
+      {
+        "day": "2026-07-10",
+        "events": 35,
+        "payers": 3,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-11",
+        "events": 53,
+        "payers": 7,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-12",
+        "events": 45,
+        "payers": 3,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-13",
+        "events": 66,
+        "payers": 5,
+        "payees": 4
+      },
+      {
+        "day": "2026-07-14",
+        "events": 39,
+        "payers": 5,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-15",
+        "events": 5,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-16",
+        "events": 24,
+        "payers": 5,
+        "payees": 4
+      },
+      {
+        "day": "2026-07-17",
+        "events": 22,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-18",
+        "events": 182,
+        "payers": 3,
+        "payees": 3
+      },
+      {
+        "day": "2026-07-19",
+        "events": 4,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-20",
+        "events": 12,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-21",
+        "events": 76,
+        "payers": 3,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-22",
+        "events": 56,
+        "payers": 4,
+        "payees": 3
+      },
+      {
+        "day": "2026-07-23",
+        "events": 31,
+        "payers": 3,
+        "payees": 3
+      },
+      {
+        "day": "2026-07-24",
+        "events": 5,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-25",
+        "events": 1,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-26",
+        "events": 24,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-28",
+        "events": 14,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-29",
+        "events": 1,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-07-30",
+        "events": 20,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-07-31",
+        "events": 2,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-01",
+        "events": 18,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-03",
+        "events": 13,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-04",
+        "events": 44,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-05",
+        "events": 54,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-06",
+        "events": 25,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-07",
+        "events": 1,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-08",
+        "events": 1,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-10",
+        "events": 55,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-11",
+        "events": 5,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-12",
+        "events": 36,
+        "payers": 3,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-13",
+        "events": 9,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-14",
+        "events": 37,
+        "payers": 3,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-15",
+        "events": 2,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-16",
+        "events": 18,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-17",
+        "events": 11,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-18",
+        "events": 12,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-19",
+        "events": 152,
+        "payers": 5,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-20",
+        "events": 161,
+        "payers": 5,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-21",
+        "events": 6,
+        "payers": 3,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-22",
+        "events": 8,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-23",
+        "events": 28,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-24",
+        "events": 31,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-25",
+        "events": 13,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-26",
+        "events": 1,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-27",
+        "events": 46,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-08-28",
+        "events": 19,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-29",
+        "events": 45,
+        "payers": 2,
+        "payees": 1
+      },
+      {
+        "day": "2026-08-30",
+        "events": 20,
+        "payers": 3,
+        "payees": 3
+      },
+      {
+        "day": "2026-08-31",
+        "events": 90,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-09-01",
+        "events": 35,
+        "payers": 2,
+        "payees": 1
+      },
+      {
+        "day": "2026-09-02",
+        "events": 143,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-09-03",
+        "events": 80,
+        "payers": 2,
+        "payees": 2
+      },
+      {
+        "day": "2026-09-04",
+        "events": 8,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-09-08",
+        "events": 6,
+        "payers": 1,
+        "payees": 1
+      },
+      {
+        "day": "2026-09-10",
+        "events": 1,
+        "payers": 1,
+        "payees": 1
+      }
+    ]
+  },
+  "erc8004Registry": {
+    "asOf": "2026-09-11T01:58:23.30739Z",
+    "totalAgents": 566916,
+    "chainsTracked": 24,
+    "chains": [
+      {
+        "name": "BNB",
+        "agents": 338832
+      },
+      {
+        "name": "Base",
+        "agents": 87194
+      },
+      {
+        "name": "Ethereum",
+        "agents": 68522
+      },
+      {
+        "name": "Abstract",
+        "agents": 15280
+      },
+      {
+        "name": "MegaETH",
+        "agents": 12735
+      },
+      {
+        "name": "Monad",
+        "agents": 10257
+      },
+      {
+        "name": "Celo",
+        "agents": 10152
+      },
+      {
+        "name": "Robinhood",
+        "agents": 6658
+      },
+      {
+        "name": "Gnosis",
+        "agents": 4128
+      },
+      {
+        "name": "Peaq",
+        "agents": 3474
+      },
+      {
+        "name": "Shape",
+        "agents": 2098
+      },
+      {
+        "name": "Avalanche",
+        "agents": 1820
+      }
+    ],
+    "daily": [
+      {
+        "day": "2026-06-14",
+        "agents": 1055
+      },
+      {
+        "day": "2026-06-15",
+        "agents": 952
+      },
+      {
+        "day": "2026-06-16",
+        "agents": 763
+      },
+      {
+        "day": "2026-06-17",
+        "agents": 1032
+      },
+      {
+        "day": "2026-06-18",
+        "agents": 1085
+      },
+      {
+        "day": "2026-06-19",
+        "agents": 1069
+      },
+      {
+        "day": "2026-06-20",
+        "agents": 1007
+      },
+      {
+        "day": "2026-06-21",
+        "agents": 753
+      },
+      {
+        "day": "2026-06-22",
+        "agents": 1270
+      },
+      {
+        "day": "2026-06-23",
+        "agents": 1680
+      },
+      {
+        "day": "2026-06-24",
+        "agents": 1339
+      },
+      {
+        "day": "2026-06-25",
+        "agents": 2130
+      },
+      {
+        "day": "2026-06-26",
+        "agents": 2405
+      },
+      {
+        "day": "2026-06-27",
+        "agents": 2692
+      },
+      {
+        "day": "2026-06-28",
+        "agents": 2696
+      },
+      {
+        "day": "2026-06-29",
+        "agents": 2595
+      },
+      {
+        "day": "2026-06-30",
+        "agents": 1651
+      },
+      {
+        "day": "2026-07-01",
+        "agents": 3436
+      },
+      {
+        "day": "2026-07-02",
+        "agents": 5820
+      },
+      {
+        "day": "2026-07-03",
+        "agents": 3701
+      },
+      {
+        "day": "2026-07-04",
+        "agents": 1203
+      },
+      {
+        "day": "2026-07-05",
+        "agents": 7174
+      },
+      {
+        "day": "2026-07-06",
+        "agents": 4756
+      },
+      {
+        "day": "2026-07-07",
+        "agents": 4974
+      },
+      {
+        "day": "2026-07-08",
+        "agents": 5827
+      },
+      {
+        "day": "2026-07-09",
+        "agents": 3064
+      },
+      {
+        "day": "2026-07-10",
+        "agents": 2141
+      },
+      {
+        "day": "2026-07-11",
+        "agents": 2010
+      },
+      {
+        "day": "2026-07-12",
+        "agents": 2009
+      },
+      {
+        "day": "2026-07-13",
+        "agents": 2556
+      },
+      {
+        "day": "2026-07-14",
+        "agents": 2222
+      },
+      {
+        "day": "2026-07-15",
+        "agents": 2126
+      },
+      {
+        "day": "2026-07-16",
+        "agents": 1593
+      },
+      {
+        "day": "2026-07-17",
+        "agents": 1375
+      },
+      {
+        "day": "2026-07-18",
+        "agents": 1275
+      },
+      {
+        "day": "2026-07-19",
+        "agents": 1172
+      },
+      {
+        "day": "2026-07-20",
+        "agents": 1313
+      },
+      {
+        "day": "2026-07-21",
+        "agents": 1417
+      },
+      {
+        "day": "2026-07-22",
+        "agents": 10134
+      },
+      {
+        "day": "2026-07-23",
+        "agents": 4093
+      },
+      {
+        "day": "2026-07-24",
+        "agents": 2943
+      },
+      {
+        "day": "2026-07-25",
+        "agents": 2177
+      },
+      {
+        "day": "2026-07-26",
+        "agents": 1592
+      },
+      {
+        "day": "2026-07-27",
+        "agents": 1260
+      },
+      {
+        "day": "2026-07-28",
+        "agents": 3807
+      },
+      {
+        "day": "2026-07-29",
+        "agents": 7138
+      },
+      {
+        "day": "2026-07-30",
+        "agents": 5743
+      },
+      {
+        "day": "2026-07-31",
+        "agents": 1905
+      },
+      {
+        "day": "2026-08-01",
+        "agents": 2083
+      },
+      {
+        "day": "2026-08-02",
+        "agents": 1503
+      },
+      {
+        "day": "2026-08-03",
+        "agents": 1543
+      },
+      {
+        "day": "2026-08-04",
+        "agents": 3618
+      },
+      {
+        "day": "2026-08-05",
+        "agents": 1376
+      },
+      {
+        "day": "2026-08-06",
+        "agents": 2741
+      },
+      {
+        "day": "2026-08-07",
+        "agents": 3822
+      },
+      {
+        "day": "2026-08-08",
+        "agents": 2840
+      },
+      {
+        "day": "2026-08-09",
+        "agents": 2533
+      },
+      {
+        "day": "2026-08-10",
+        "agents": 2020
+      },
+      {
+        "day": "2026-08-11",
+        "agents": 1861
+      },
+      {
+        "day": "2026-08-12",
+        "agents": 1232
+      },
+      {
+        "day": "2026-08-13",
+        "agents": 4326
+      },
+      {
+        "day": "2026-08-14",
+        "agents": 4473
+      },
+      {
+        "day": "2026-08-15",
+        "agents": 2843
+      },
+      {
+        "day": "2026-08-16",
+        "agents": 1576
+      },
+      {
+        "day": "2026-08-17",
+        "agents": 1339
+      },
+      {
+        "day": "2026-08-18",
+        "agents": 2198
+      },
+      {
+        "day": "2026-08-19",
+        "agents": 2462
+      },
+      {
+        "day": "2026-08-20",
+        "agents": 13693
+      },
+      {
+        "day": "2026-08-21",
+        "agents": 9083
+      },
+      {
+        "day": "2026-08-22",
+        "agents": 5820
+      },
+      {
+        "day": "2026-08-23",
+        "agents": 3876
+      },
+      {
+        "day": "2026-08-24",
+        "agents": 4331
+      },
+      {
+        "day": "2026-08-25",
+        "agents": 7091
+      },
+      {
+        "day": "2026-08-26",
+        "agents": 6030
+      },
+      {
+        "day": "2026-08-27",
+        "agents": 4957
+      },
+      {
+        "day": "2026-08-28",
+        "agents": 5955
+      },
+      {
+        "day": "2026-08-29",
+        "agents": 2508
+      },
+      {
+        "day": "2026-08-30",
+        "agents": 2334
+      },
+      {
+        "day": "2026-08-31",
+        "agents": 11113
+      },
+      {
+        "day": "2026-09-01",
+        "agents": 6124
+      },
+      {
+        "day": "2026-09-02",
+        "agents": 4299
+      },
+      {
+        "day": "2026-09-03",
+        "agents": 1653
+      },
+      {
+        "day": "2026-09-04",
+        "agents": 2583
+      },
+      {
+        "day": "2026-09-05",
+        "agents": 1592
+      },
+      {
+        "day": "2026-09-06",
+        "agents": 1536
+      },
+      {
+        "day": "2026-09-07",
+        "agents": 1438
+      },
+      {
+        "day": "2026-09-08",
+        "agents": 3373
+      },
+      {
+        "day": "2026-09-09",
+        "agents": 926
+      },
+      {
+        "day": "2026-09-10",
+        "agents": 1165
+      },
+      {
+        "day": "2026-09-11",
+        "agents": 52
+      }
+    ]
+  },
+  "olas": {
+    "asOf": "2026-09-05T01:59:47.048045Z",
+    "totalTxs": 19225418,
+    "chains": [
+      {
+        "name": "Gnosis",
+        "txs": 18522911
+      },
+      {
+        "name": "Optimism",
+        "txs": 367965
+      },
+      {
+        "name": "Polygon",
+        "txs": 201709
+      },
+      {
+        "name": "Base",
+        "txs": 131227
+      },
+      {
+        "name": "Ethereum",
+        "txs": 1401
+      },
+      {
+        "name": "Celo",
+        "txs": 176
+      },
+      {
+        "name": "Solana",
+        "txs": 27
+      },
+      {
+        "name": "Arbitrum",
+        "txs": 2
+      }
+    ],
+    "weekly": [
+      {
+        "week": "2025-09-08",
+        "txs": 186094
+      },
+      {
+        "week": "2025-09-15",
+        "txs": 212017
+      },
+      {
+        "week": "2025-09-22",
+        "txs": 185254
+      },
+      {
+        "week": "2025-09-29",
+        "txs": 209169
+      },
+      {
+        "week": "2025-10-06",
+        "txs": 201856
+      },
+      {
+        "week": "2025-10-13",
+        "txs": 176599
+      },
+      {
+        "week": "2025-10-20",
+        "txs": 223673
+      },
+      {
+        "week": "2025-10-27",
+        "txs": 212574
+      },
+      {
+        "week": "2025-11-03",
+        "txs": 281935
+      },
+      {
+        "week": "2025-11-10",
+        "txs": 203423
+      },
+      {
+        "week": "2025-11-17",
+        "txs": 261701
+      },
+      {
+        "week": "2025-11-24",
+        "txs": 212634
+      },
+      {
+        "week": "2025-12-01",
+        "txs": 208147
+      },
+      {
+        "week": "2025-12-08",
+        "txs": 234509
+      },
+      {
+        "week": "2025-12-15",
+        "txs": 254522
+      },
+      {
+        "week": "2025-12-22",
+        "txs": 211407
+      },
+      {
+        "week": "2025-12-29",
+        "txs": 225627
+      },
+      {
+        "week": "2026-01-05",
+        "txs": 187315
+      },
+      {
+        "week": "2026-01-12",
+        "txs": 172233
+      },
+      {
+        "week": "2026-01-19",
+        "txs": 166536
+      },
+      {
+        "week": "2026-01-26",
+        "txs": 158369
+      },
+      {
+        "week": "2026-02-02",
+        "txs": 146546
+      },
+      {
+        "week": "2026-02-09",
+        "txs": 120574
+      },
+      {
+        "week": "2026-02-16",
+        "txs": 128477
+      },
+      {
+        "week": "2026-02-23",
+        "txs": 131571
+      },
+      {
+        "week": "2026-03-02",
+        "txs": 126166
+      },
+      {
+        "week": "2026-03-09",
+        "txs": 171801
+      },
+      {
+        "week": "2026-03-16",
+        "txs": 180943
+      },
+      {
+        "week": "2026-03-23",
+        "txs": 203504
+      },
+      {
+        "week": "2026-03-30",
+        "txs": 316492
+      },
+      {
+        "week": "2026-04-06",
+        "txs": 222897
+      },
+      {
+        "week": "2026-04-13",
+        "txs": 180874
+      },
+      {
+        "week": "2026-04-20",
+        "txs": 197258
+      },
+      {
+        "week": "2026-04-27",
+        "txs": 59302
+      },
+      {
+        "week": "2026-05-04",
+        "txs": 173818
+      },
+      {
+        "week": "2026-05-11",
+        "txs": 145781
+      },
+      {
+        "week": "2026-05-18",
+        "txs": 148359
+      },
+      {
+        "week": "2026-05-25",
+        "txs": 136662
+      },
+      {
+        "week": "2026-06-01",
+        "txs": 128453
+      },
+      {
+        "week": "2026-06-08",
+        "txs": 113844
+      },
+      {
+        "week": "2026-06-15",
+        "txs": 156264
+      },
+      {
+        "week": "2026-06-22",
+        "txs": 211746
+      },
+      {
+        "week": "2026-06-29",
+        "txs": 161928
+      },
+      {
+        "week": "2026-07-06",
+        "txs": 172634
+      },
+      {
+        "week": "2026-07-13",
+        "txs": 202057
+      },
+      {
+        "week": "2026-07-20",
+        "txs": 194640
+      },
+      {
+        "week": "2026-07-27",
+        "txs": 196550
+      },
+      {
+        "week": "2026-08-03",
+        "txs": 222163
+      },
+      {
+        "week": "2026-08-10",
+        "txs": 151651
+      },
+      {
+        "week": "2026-08-17",
+        "txs": 90562
+      },
+      {
+        "week": "2026-08-24",
+        "txs": 95945
+      },
+      {
+        "week": "2026-08-31",
+        "txs": 73031
+      }
+    ]
+  }
+}

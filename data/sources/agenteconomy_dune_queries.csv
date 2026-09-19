@@ -1,0 +1,14 @@
+# 由 agent_fingerprint/src/data_fetch 生成
+# 时间: 2026-09-12 16:36:43
+# agenteconomy.to 公开的底层 Dune 查询 ID
+# 这些是现成且经过验证的查询，可 fork 后改，省去从零写 SQL
+# last_cost_credits 可用于估算自己的 Dune credits 消耗
+name,query_id,dune_url,last_cost_credits,executed_at
+x402Cumulative,7895747,https://dune.com/queries/7895747,13.848653847,2026-09-12T02:05:45.854692Z
+x402Daily,7881006,https://dune.com/queries/7881006,5.504038462,2026-09-12T02:02:53.245368Z
+baseAgentic,6731879,https://dune.com/queries/6731879,6.279423077,2026-09-12T02:03:34.333019Z
+virtualsAcp,7881007,https://dune.com/queries/7881007,0.223026316,2026-09-12T02:04:29.865949Z
+erc8004Registry,7881124,https://dune.com/queries/7881124,1.968653847,2026-09-11T01:58:23.30739Z
+olas,7881008,https://dune.com/queries/7881008,0.764852942,2026-09-05T01:59:47.048045Z
+x402TokenSplit,7931767,https://dune.com/queries/7931767,1.737884616,2026-09-12T02:04:21.472447Z
+x402Chains,6166650,https://dune.com/queries/6166650,nan,2026-08-19T10:27:46.041211Z
